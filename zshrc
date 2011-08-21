@@ -1,4 +1,5 @@
-#source /etc/zsh/zprofile
+source /etc/zsh/zprofile
+source ~/dotfiles/zshrc_lib
 
 #
 #  VARIABLES
@@ -30,6 +31,9 @@ setopt NO_CHECK_JOBS
 setopt NO_CLOBBER
 setopt NO_HUP
 setopt PUSHD_SILENT
+setopt autocd
+setopt extendedglob
+setopt PROMPT_SUBST
 
 #
 #  ALIAS
@@ -69,9 +73,9 @@ bindkey '^[[F'	end-of-line				# END
 #  MISC
 #
 
-#
-#  PROMPT
-#
+
+
+# Functions
 
 export NC="%{$terminfo[sgr0]%}"
 
@@ -81,11 +85,14 @@ for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE BLACK; do
 	(( count = $count + 1 ))
 done
 
+# Alias color
+GREY=$BLACK
+
 
 _hostname_color() {
   case $(uname -n) in
     (carbon)
-      echo -n $BLACK
+      echo -n $GREY
       ;;
     (jenny)
       echo -n $MAGENTA
@@ -114,9 +121,30 @@ _username_color() {
 			;;
 	esac
 }
+
+_git_branch_color() {
+	case "$(__git_ps1 '%s')" in
+		production)
+			echo -n $red
+			;;
+		release)
+			echo -n $red
+			;;
+		*)
+			echo -n $GREY
+			;;
+	esac
+}	
+
+
+
+#
+#  PROMPT
+#
+
 hostname=`hostname`
-export PROMPT="$(_username_color)%n$(_hostname_color) @$hostname $white>$BLACK>$black> %{$reset_color%}"
-export RPROMPT="$NC%~ [$?]"
+export PROMPT="$(_username_color)%n$(_hostname_color) @$hostname $WHITE>$white>$BLACK> %{$reset_color%}"
+export RPROMPT='$NC%~$(_git_branch_color)$(__git_ps1 "(%s)")$white [$?]'
 
 autoload -U compinit
 compinit
@@ -124,4 +152,3 @@ compinit
 if [[ -f ~/.zshrc.local ]]; then
 	source ~/.zshrc.local
 fi
-
