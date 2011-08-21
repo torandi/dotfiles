@@ -13,7 +13,6 @@ HISTSIZE=1000
 export EDITOR=vim
 #export LANG="en_US"
 #export LC_CTYPE="sv_SE"
-export PATH=/home/torandi/.cabal/bin:$PATH:/home/torandi/dev/tools/android-sdk-linux_x86/tools:/home/torandi/dev/tools/android-ndk-r6:/home/torandi/dev/tools/android-sdk-linux_x86/platform-tools
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 #
@@ -115,4 +114,7 @@ export RPROMPT="$NC%~ [$?]"
 autoload -U compinit
 compinit
 
-[[ -s "/home/torandi/.rvm/scripts/rvm" ]] && source "/home/torandi/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+if [[ -f ~/.zshrc.local ]]; then
+	source ~/.zshrc.local
+fi
+

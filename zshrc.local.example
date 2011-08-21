@@ -1,0 +1,3 @@
+export PATH=/home/torandi/.cabal/bin:$PATH:/home/torandi/dev/tools/android-sdk-linux_x86/tools:/home/torandi/dev/tools/android-ndk-r6:/home/torandi/dev/tools/android-sdk-linux_x86/platform-tools
+
+[[ -s "/home/torandi/.rvm/scripts/rvm" ]] && source "/home/torandi/.rvm/scripts/rvm"  # This loads RVM into a shell session.
