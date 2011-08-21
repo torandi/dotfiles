@@ -96,19 +96,26 @@ _hostname_color() {
     (xenon)
       echo -n $GREEN
       ;;
-    (haagen-dazs)
-      echo -n $red
-      ;;
     (sulfur)
       echo -n $YELLOW
 		;;
 	 (*)
-	   echo -n $RED
+	   echo -n $WHITE
 		;;
     esac
 }
+_username_color() {
+	case $(whoami) in
+		(root)
+			echo -n $RED
+			;;
+		(*)
+			echo -n $white
+			;;
+	esac
+}
 hostname=`hostname`
-export PROMPT="$white%n$(_hostname_color) @$hostname $white>$BLACK>$black> %{$reset_color%}"
+export PROMPT="$(_username_color)%n$(_hostname_color) @$hostname $white>$BLACK>$black> %{$reset_color%}"
 export RPROMPT="$NC%~ [$?]"
 
 autoload -U compinit
