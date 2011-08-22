@@ -1,4 +1,3 @@
-source /etc/zsh/zprofile
 source ~/dotfiles/zshrc_lib
 
 #
@@ -104,6 +103,9 @@ _hostname_color() {
       echo -n $GREEN
       ;;
     (sulfur)
+      echo -n $YELLOW
+		;;
+    (plutonium)
       echo -n $YELLOW
 		;;
 	 (*)
