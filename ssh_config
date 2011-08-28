@@ -1,0 +1,93 @@
+ForwardAgent yes
+
+Host o
+HostName ostkaka.slafs.org
+Port 222
+
+Host oxygen
+HostName oxygen.torandi.com
+Port 4722
+
+Host xe
+HostName xenon.local
+
+Host j
+HostName 10.2
+Port 22
+
+Host my
+Hostname my.nada.kth.se
+User taran
+
+Host u3
+Hostname u-shell.csc.kth.se
+User taran
+
+Host g
+Hostname gaffa.nitroxy.com
+Port 222
+
+Host pommes
+Hostname pommes.slafs.org
+Port 222
+User nitroxy
+
+Host vpng
+Hostname gaffavpn.nitroxy.com
+
+Host r
+Hostname refurn.space2u.com
+User tarandi
+
+Host green3
+Hostname green-03.nada.kth.se
+User taran
+
+Host green4
+Hostname green-04.nada.kth.se
+User taran
+
+Host hd
+Hostname haagen-dazs.stacken.kth.se
+User taran
+
+Host p
+Hostname plutonium.torandi.com
+
+Host sp
+Hostname www.southpole.se
+User tarandi
+
+#Ben and jerrys
+
+Host bj
+Hostname ben-and-jerrys.stacken.kth.se
+User taran
+
+Host ff.bj
+Hostname fossil-fuel.ben-and-jerrys.stacken.kth.se
+User taran
+
+Host ts.bj
+Hostname turtle-soup.ben-and-jerrys.stacken.kth.se
+User taran
+
+Host mb.bj
+Hostname magic-brownies.ben-and-jerrys.stacken.kth.se
+User taran
+
+Host kk.bj
+Hostname kaberry-kaboom.ben-and-jerrys.stacken.kth.se
+User taran
+
+Host bt.bj
+Hostname berried-treasure.ben-and-jerrys.stacken.kth.se
+User taran
+
+Host cf.bj
+Hostname clusterfluff.ben-and-jerrys.stacken.kth.se
+User taran
+
+Host refurn
+Hostname 109.74.0.68
+User root
