@@ -14,6 +14,7 @@
     use_system_font = False
     foreground_color = "#ffffff"
     font = Monospace 8
+    scrollback_infinite = True
 [layouts]
   [[default]]
     [[[child1]]]
