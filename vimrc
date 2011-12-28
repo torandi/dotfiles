@@ -13,6 +13,7 @@ set incsearch
 
 set smarttab
 
+set pastetoggle=<F2>
 
 
 au BufRead,BufNewFile *.rb,*.rhtml,*.haml set shiftwidth=2
