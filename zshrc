@@ -146,7 +146,7 @@ _git_branch_color() {
 
 hostname=`hostname`
 export PROMPT="$(_username_color)%n$(_hostname_color) @$hostname $WHITE>$white>$BLACK> %{$reset_color%}"
-export RPROMPT='$NC%~$(_git_branch_color)$(__git_ps1 "(%s)")$white [$?]'
+export RPROMPT='$NC4%~$(_git_branch_color)$(__git_ps1 "(%s)") %0(?:${GREEN}:%B${RED})[%?]%b%{$reset_color%}'
 
 autoload -U compinit
 compinit
