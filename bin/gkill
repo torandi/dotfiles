@@ -1,0 +1,46 @@
+#!/bin/sh
+#A script to kill programs with ps aux | grep and then kill -9 pid
+#Usage:
+#gkill to_grep_for
+if [ -z "$1" ]; then
+	echo "Missing argument 1: String to grep for"
+	exit;
+fi
+
+processes=`ps aux | grep "$1" | grep -v "grep $1" | grep -v "gkill" `
+lines=`ps aux | grep "$1" | grep -v "grep $1" | grep -v "gkill" | wc -l`
+if [ "$lines" == "0" ]; then
+	echo "No process found"
+	exit;
+fi
+i=0
+pids[0]=0
+echo "[0] Abort"
+
+find_pid() {
+	echo $2
+}
+ORG_IFS=$IFS
+IFS=`echo -en "\n\b"`
+for proc in $processes; do
+	i=$(($i+1))
+	IFS=" "
+	pids[$i]=`find_pid $proc`
+	pid=${pids[$i]}
+	IFS=`echo -en "\n\b"`
+	echo "[$i] $proc"
+done
+IFS=$ORG_IFS
+
+echo -n "Select a process to kill (0-$i): " 
+read n
+pid=$((pids[n]))
+if [ "$pid" != "0" ]; then
+	kill -9 $pid
+	if [ "$?" == "0" ]; then
+		echo "Process $pid killed"
+	fi
+else
+	echo "No process killed"
+fi
+
