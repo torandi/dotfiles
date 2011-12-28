@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #A script to kill programs with ps aux | grep and then kill -9 pid
 #Usage:
 #gkill to_grep_for
