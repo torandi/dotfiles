@@ -1,25 +1,53 @@
 #!/bin/bash
 #A script to kill programs with ps aux | grep and then kill -9 pid
 #Usage:
-#gkill to_grep_for
+# gkill [ -signal ] [-s signal] string_to_grep_for
+
+SIGNAL="TERM" # Default signal
+
+halp() {
+	echo "Usage: gkill [ -signal ] [-s signal] string_to_grep_for"
+}
+
+if [[ $1 == "-s" ]]; then
+	shift
+	SIGNAL="$1"
+	shift
+fi
+
+if [[ $1 =~ -([0-9]+|[A-Z]+) ]]; then
+	shift
+	SIGNAL="${BASH_REMATCH[1]}"
+fi
+
+if [ -z "$SIGNAL" ]; then
+	echo "No signal specified"
+	halp
+	exit 1
+fi
+
 if [ -z "$1" ]; then
-	echo "Missing argument 1: String to grep for"
-	exit;
+	echo "Missing string to grep for"
+	halp
+	exit 2
 fi
 
 processes=`ps aux | grep "$1" | grep -v "grep $1" | grep -v "gkill" `
 lines=`ps aux | grep "$1" | grep -v "grep $1" | grep -v "gkill" | wc -l`
 if [ "$lines" == "0" ]; then
 	echo "No process found"
-	exit;
+	exit 3
 fi
 i=0
 pids[0]=0
+
 echo "[0] Abort"
+
 
 find_pid() {
 	echo $2
 }
+
 ORG_IFS=$IFS
 IFS=`echo -en "\n\b"`
 for proc in $processes; do
@@ -32,7 +60,7 @@ for proc in $processes; do
 done
 IFS=$ORG_IFS
 
-echo -n "Select a process to kill (0-$i): " 
+echo -n "Select a process to send SIG$SIGNAL to (0-$i): " 
 read n
 pid=$((pids[n]))
 if [ "$pid" != "0" ]; then
