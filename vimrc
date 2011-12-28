@@ -1,6 +1,5 @@
 set tabstop=3
 set shiftwidth=3
-set expandtab
 syntax on
 set ignorecase
 set number
@@ -15,5 +14,5 @@ set smarttab
 
 
 
-au BufRead,BufNewFile *.rb,*.rhtml,*.haml set shiftwidth=2
-au BufRead,BufNewFile *.rb,*.rhtml,*.haml set softtabstop=2
+au BufRead,BufNewFile *.rb,*.rhtml,*.haml set shiftwidth=2 softtabstop=2 expandtab
+au BufRead,BufNewFile *.py set softtabstop=4 shiftwidth=4 expandtab 
