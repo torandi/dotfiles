@@ -41,6 +41,7 @@ alias ls=ls\ --color=auto\ -h\ -F
 alias ll=ls\ -l
 alias mv=mv\ -v
 alias playlist=mplayer\ -playlist
+alias irc='ssh o -t "screen -rd"'
 
 #
 # SCRIPTS
