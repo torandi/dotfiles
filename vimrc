@@ -4,6 +4,9 @@ filetype off                   " required!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+" change leader to ,'
+let mapleader = ","
+
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
@@ -22,6 +25,12 @@ Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-pastie'
 Bundle 'vim-scripts/ScrollColors'
+Bundle 'scrooloose/nerdcommenter'
+
+" Vim-scripts 
+Bundle 'glsl.vim'
+Bundle 'ShowMarks7'
+
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
 " ...
@@ -38,16 +47,41 @@ filetype plugin indent on     " required!
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle command are not allowed..
 
+" Tell vim to remember certain things when we exit
+" '10 : marks will be remembered for up to 10 previously edited files
+" "100 : will save up to 100 lines for each register
+" :20 : up to 20 lines of command-line history will be remembered
+" % : saves and restores the buffer list
+" n... : where to save the viminfo files
+set viminfo='10,\"100,:20,%,n~/.vim/viminfo
 
-set tabstop=3
-set shiftwidth=3
 syntax on
-set ignorecase
-set number
-set autoindent
-set smartindent
-set showmatch
+
+set nostartofline " Keep cursor in the same column if possible.
+set whichwrap=b,s,[,],<,>,h,l " Allow cursor to wrap between lines.
+set virtualedit=block " Allow virtual editing in Visual block mode.
+set lazyredraw " Don't redraw screen while executing macros/mappings.
+set scrolloff=1 " Minimal number of screen lines to keep above and below the cursor.
+set incsearch " Enable incremental search.
+set backspace=indent,eol,start " Allow backspacing over everything in insert mode.
+set winaltkeys=no " Allow mapping of alt (meta) key shortcuts.
+set ruler " Show the cursor position all the time.
+set showcmd " Display incomplete commands.
+set hlsearch " Highlight search patterns.
+set ignorecase " Ignore case.
+set smartcase " Ignore case when the pattern contains lowercase letters only.
+set showtabline=1 " Show tab page labels if there is more than one tab.
+set number " Display line numbers.
+set shiftwidth=3 " Spaces for each step of (auto)indent
+set tabstop=3 " Spaces that a <Tab> in the file counts for
+set softtabstop=3 " Spaces that a <Tab> counts for when editing
+set hidden " Allows hidden buffers
+set cursorline " Shows what line the cursor is on
+set cursorcolumn " Shows what column the cursor is on
 set incsearch
+set mouse=a " Allow the mouse in normal mode.
+set showmatch
+set autoindent
 
 set smarttab
 
@@ -55,4 +89,19 @@ au BufNewFile,BufRead *.glsl,*.vert,*.frag,*.geom set syntax=glsl
 au BufRead,BufNewFile *.rb,*.rhtml,*.haml set shiftwidth=2 softtabstop=2 expandtab
 au BufRead,BufNewFile *.py set softtabstop=4 shiftwidth=4 expandtab 
 
+" Bindings
+"
+"
+" Don't remove visual block when indenting.
+vmap < <gv
+vmap > >gv
+
 set pastetoggle=<F2>
+
+"This allows for change paste motion cp{motion}
+nmap <silent> cp :set opfunc=ChangePaste<CR>g@
+function! ChangePaste(type, ...)
+    silent exe "normal! `[v`]\"_c"
+    silent exe "normal! p"
+endfunction
+
