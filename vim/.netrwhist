@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/usr/share/X11/xkb/symbols'
-let g:netrw_dirhist_2='/var/rails/cashflow/app/views/product_types'
-let g:netrw_dirhist_3='/var/rails/cashflow/config/locales'
-let g:netrw_dirhist_4='/var/rails/mage/config/locales'
-let g:netrw_dirhist_5='/var/rails/mage/app/pdfs'
-let g:netrw_dirhist_6='/home/torandi/dev/omgspaceponies'
-let g:netrw_dirhist_7='/var/rails/mage/public/javascripts'
