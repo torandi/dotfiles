@@ -105,3 +105,4 @@ function! ChangePaste(type, ...)
     silent exe "normal! p"
 endfunction
 
+colorscheme linduxed
