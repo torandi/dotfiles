@@ -6,33 +6,45 @@
 
 
 # hlsearch on (H) or off (h):
-~h
+~H
 # Last Search Pattern:
-~MSle0~/render_sky
+~MSle0~/status
 
 # Command Line History (newest to oldest):
+:q!
 :q
+:w
+:e content/sidebar.php
+:e public/scripts/ajax_buyticket.php
+:nohlsearch
+:W
+:383
+:838
+:e classes/User.php
 :tabnew
 :sp
-:colorscheme torandi
-:w
-:e linduxed.vim
 :colorscheme linduxed
+:colorscheme default
 :colorscheme desert
+:e ~/.vimrc
+:~/.vimrc
+:colorscheme torandi
+:e linduxed.vim
 :e ~/Downloads/desert.vim
-:vs
-:np
-:q!
-:colorscheme wargrey
-:colorscheme skittles_dark
-:nohlsearch
-:colorscheme redstring
-:colorscheme potts
-:colorscheme nour
-:colorscheme nature
-:colorscheme lettuce
 
 # Search String History (newest to oldest):
+??status
+?/event
+?/hl
+?/id
+?/paid_ti
+?/has_
+?/has_ticket
+?/from_ow
+?/tickets
+?/tickets()
+?/alias for
+?/has_tickets
 ?/render_sky
 ?/Easy
 ?/fold
@@ -45,169 +57,108 @@
 
 # Registers:
 "0	LINE	0
-	hi Normal	guifg=White guibg=grey20
-	
-	" highlight groups
-	hi Cursor	guibg=khaki guifg=slategrey
-	"hi CursorIM	
-	"hi Directory	
-	"hi DiffAdd				
-	"hi DiffChange	
-	"hi DiffDelete	
-	"hi DiffText	
-	"hi ErrorMsg	
-	hi VertSplit	guibg=#c2bfa5 guifg=grey50 gui=none
-	hi Folded	guibg=grey30 guifg=gold 
-	hi FoldColumn	guibg=grey30 guifg=tan
-	hi IncSearch	guifg=slategrey guibg=khaki
-	"hi LineNr				
-	hi ModeMsg	guifg=goldenrod
-	hi MoreMsg	guifg=SeaGreen
-	hi NonText	guifg=LightBlue guibg=grey30
-	hi Question	guifg=springgreen
-	hi Search	guibg=peru guifg=wheat
-	hi SpecialKey	guifg=yellowgreen
-	hi StatusLine	guibg=#c2bfa5 guifg=black gui=none
-	hi StatusLineNC	guibg=#c2bfa5 guifg=grey50 gui=none
-	hi Title	guifg=indianred
-	hi Visual	gui=none guifg=khaki guibg=olivedrab
-	"hi VisualNOS	
-	hi WarningMsg	guifg=salmon
-	"hi WildMenu	
-	"hi Menu				
-	"hi Scrollbar	
-	"hi Tooltip				
-	
-	" syntax highlighting groups
-	hi Comment	 guifg=SkyBlue
-	hi Constant	 guifg=#ffa0a0
-	hi Identifier	 guifg=palegreen
-	hi Statement	 guifg=khaki
-	hi PreProc	 guifg=indianred
-	hi Type		 guifg=darkkhaki
-	hi Special	 guifg=navajowhite
-	"hi Underlined	
-	hi Ignore 	 guifg=grey40
-	"hi Error			
-	hi Todo		 guifg=orangered guibg=yellow2
-	
-	" color terminal definitions
-	hi SpecialKey    ctermfg=darkgreen
-	hi NonText       cterm=bold ctermfg=darkblue
-	hi Directory     ctermfg=darkcyan
-	hi ErrorMsg      cterm=bold ctermfg=7 ctermbg=1
-	hi IncSearch     cterm=NONE ctermfg=yellow ctermbg=green
-	hi Search        cterm=NONE ctermfg=grey ctermbg=blue
-	hi MoreMsg       ctermfg=darkgreen
-	hi ModeMsg       cterm=NONE ctermfg=brown
-	hi LineNr        ctermfg=3
-	hi Question      ctermfg=green
-	hi StatusLine    cterm=bold,reverse
-	hi StatusLineNC  cterm=reverse
-	hi VertSplit     cterm=reverse
-	hi Title         ctermfg=5
-	hi Visual        cterm=reverse
-	hi VisualNOS     cterm=bold,underline
-	hi WarningMsg    ctermfg=1
-	hi WildMenu      ctermfg=0 ctermbg=3
-	hi Folded        ctermfg=darkgrey ctermbg=NONE
-	hi FoldColumn    ctermfg=darkgrey ctermbg=NONE
-	hi DiffAdd       ctermbg=4
-	hi DiffChange    ctermbg=5
-	hi DiffDelete    cterm=bold ctermfg=4 ctermbg=6
-	hi DiffText      cterm=bold ctermbg=1
-	hi Comment       ctermfg=darkcyan
-	hi Constant      ctermfg=brown
-	hi Special       ctermfg=5
-	hi Identifier    ctermfg=6
-	hi Statement     ctermfg=3
-	hi PreProc       ctermfg=5
-	hi Type          ctermfg=2
-	hi Underlined    cterm=underline ctermfg=5
-	hi Ignore        ctermfg=darkgrey
-	hi Error         cterm=bold ctermfg=7 ctermbg=1
+		$tickets=Ticket::selection("owner"=>$user->id(), "orders.event_id"=>$event->id);
 "1	LINE	0
-	
-	
-	hi Normal		ctermfg=255		ctermbg=none	cterm=none
-	hi Directory	ctermfg=75		ctermbg=none	cterm=bold
-	hi ErrorMsg		ctermfg=160		ctermbg=0		cterm=bold
-	hi PreProc		ctermfg=45		ctermbg=none	cterm=bold
-	hi Search		ctermfg=17		ctermbg=252		cterm=bold
-	hi Type			ctermfg=141		ctermbg=none	cterm=bold
-	hi Statement	ctermfg=208		ctermbg=none	cterm=bold
-	hi Comment		ctermfg=241		ctermbg=none	cterm=none
-	hi LineNr		ctermfg=244		ctermbg=233		cterm=none
-	hi DiffText		ctermfg=165		ctermbg=244		cterm=none
-	hi Constant		ctermfg=76		ctermbg=none	cterm=none
-	hi Todo			ctermfg=163		ctermbg=235		cterm=bold
-	hi Identifier	ctermfg=226		ctermbg=none	cterm=bold
-	hi Error		ctermfg=none	ctermbg=196		cterm=bold
-	hi Special		ctermfg=196		ctermbg=none	cterm=bold
-	hi Ignore		ctermfg=221		ctermbg=none	cterm=bold
-	hi Underline	ctermfg=147		ctermbg=none	cterm=italic
-	hi String		ctermfg=43		ctermbg=none	cterm=none
-	hi Character	ctermfg=215		ctermbg=none	cterm=none
-	hi Number		ctermfg=118		ctermbg=none	cterm=none
-	hi FoldColumn	ctermfg=104		ctermbg=none	cterm=none
-	hi Folded		ctermfg=104		ctermbg=none	cterm=bold
-	hi Visual		ctermfg=none	ctermbg=238		cterm=none
-	hi Title		ctermfg=159		ctermbg=none	cterm=none
-	
-	" Completion menu
-	hi Pmenu		ctermfg=69		ctermbg=235		cterm=none
-	hi PmenuSel		ctermfg=79		ctermbg=232		cterm=bold
-	hi PmenuSbar	ctermfg=247		ctermbg=235		cterm=bold
-	hi PmenuThumb	ctermfg=248		ctermbg=235		cterm=none
-	
-	" Chrome
-	hi StatusLineNC ctermfg=248		ctermbg=239		cterm=none
-	hi StatusLine	ctermfg=39		ctermbg=239		cterm=none
-	hi VertSplit	ctermfg=239		ctermbg=239		cterm=none
-	hi User1		cterm=bold		ctermbg=236		ctermfg=223
-	hi User2		cterm=none		ctermbg=236		ctermfg=240
-	
-	" Tabs
-	hi TabLine		ctermfg=245		ctermbg=239		cterm=none
-	hi TabLineFill	ctermfg=239		ctermbg=239
-	hi TabLineSel	ctermfg=104		ctermbg=236		cterm=bold
-	
-	" Cursor
-	hi Cursor		ctermfg=255		ctermbg=57		cterm=none
-	hi CursorLine	ctermfg=none	ctermbg=234		cterm=none
-	hi CursorColumn	ctermfg=none	ctermbg=234		term=reverse
-	
-	" Invisible characters
-	hi SpecialKey	ctermfg=102		ctermbg=none	cterm=none
-	hi NonText		ctermfg=104		ctermbg=none	cterm=bold
-	
-	" MiniBufExpl Colors
-	hi MBEVisibleActive			ctermfg=154		ctermbg=none	cterm=bold
-	hi MBEVisibleChangedActive	ctermfg=124		ctermbg=none	cterm=bold
-	hi MBEVisibleChanged		ctermfg=124		ctermbg=none	cterm=bold
-	hi MBEVisibleNormal			ctermfg=45		ctermbg=none	cterm=bold
-	hi MBEChanged				ctermfg=208		ctermbg=none	cterm=bold
-	hi MBENormal				ctermfg=244		ctermbg=none	cterm=bold
-"2	LINE	0
-	let g:EasyMotion_leader_key = '<Leader>'
+	set hlsearch " Highlight search patterns.
+"2	CHAR	0
+	$event->
 "3	LINE	0
-	let g:EasyMotion_leader_key = '<Leader>'
+			$query = "
+				SELECT
+					1
+				FROM
+					`tickets`,
+					`orders`
+				WHERE
+					`tickets`.`order_id` = `orders`.`order_id` AND
+					`tickets`.`owner` = ? AND
+					`orders`.`event_id` = ? AND
+					`orders`.`status` = ?
+				LIMIT 1";
+			$stmt = $db->prepare_full($query, null, 'iii', $this->id(),$event_id ,ORDER_STATUS_PAID);
+			$result=$stmt->fetch();
+			$stmt->close();
+			return $result;
+"4	LINE	0
+			
+"5	LINE	0
+	
+"6	LINE	0
+		/**
+"7	LINE	0
+		* alias for from_owner
+		*/
+		public static function from_user_id($owner=null) {
+			return Ticket::from_owner($owner);
+		}
+"8	LINE	0
+	
+"9	LINE	0
+		/**
+		* Hämtar en array av biljetter från databasen genom att använda användarens id.
+		* @param int owner
+		* @return Ticket[] Array of Tickets (array might be empty)
+		*/
+		public static function from_owner($owner=null,$event_id=null) {
+			global $u;
+			global $event;
+			if(is_null($owner)) {
+				$owner=$u->id;
+			}
+			if(is_null($event_id)) {
+				$event_id = $event->id;
+			}
+			return Ticket::selection(array("owner"=>$owner, "orders.event_id"=>$event_id));
+		}
 ""-	CHAR	0
-	c2bfa5 
+	owren
 
 # File marks:
-'0  2  23  ~/dotfiles/vimrc
-'1  108  19  ~/dotfiles/vimrc
-'2  1  0  ~/dotfiles/.vimrc
-'3  1  0  ~/dotfiles/.vimr
-'4  1  0  ~/dotfiles/.vim/colors/linduxed.vim
-'5  293  0  /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
-'6  49  11  /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
-'7  79  0  ~/.vimrc
-'8  114  19  /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
-'9  263  3  /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
+'0  1  47  /f/sys/www/nitroxy/.git/COMMIT_EDITMSG
+'1  75  23  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
+'2  70  4  ~/.vimrc
+'3  93  41  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
+'4  42  47  ~/.vimrc
+'5  81  11  ~/.vimrc
+'6  41  20  /f/sys/www/nitroxy/classes/Ticket.php
+'7  1  18  ~/dotfiles/.git/COMMIT_EDITMSG
+'8  2  23  ~/dotfiles/vimrc
+'9  108  19  ~/dotfiles/vimrc
 
 # Jumplist (newest first):
+-'  1  47  /f/sys/www/nitroxy/.git/COMMIT_EDITMSG
+-'  75  23  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
+-'  52  0  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
+-'  32  45  /f/sys/www/nitroxy/content/sidebar.php
+-'  17  105  /f/sys/www/nitroxy/content/sidebar.php
+-'  49  12  /f/sys/www/nitroxy/content/sidebar.php
+-'  21  5  /f/sys/www/nitroxy/content/sidebar.php
+-'  28  9  /f/sys/www/nitroxy/content/sidebar.php
+-'  101  10  /f/sys/www/nitroxy/content/sidebar.php
+-'  44  14  /f/sys/www/nitroxy/content/sidebar.php
+-'  294  10  /f/sys/www/nitroxy/classes/Ticket.php
+-'  1  0  /f/sys/www/nitroxy/classes/Ticket.php
+-'  70  4  ~/.vimrc
+-'  1  0  ~/.vimrc
+-'  93  41  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
+-'  14  41  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
+-'  1  0  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
+-'  533  17  /f/sys/www/nitroxy/classes/User.php
+-'  384  111  /f/sys/www/nitroxy/classes/User.php
+-'  532  37  /f/sys/www/nitroxy/classes/User.php
+-'  531  0  /f/sys/www/nitroxy/classes/User.php
+-'  723  9  /f/sys/www/nitroxy/classes/User.php
+-'  643  4  /f/sys/www/nitroxy/classes/User.php
+-'  641  35  /f/sys/www/nitroxy/classes/User.php
+-'  640  4  /f/sys/www/nitroxy/classes/User.php
+-'  628  5  /f/sys/www/nitroxy/classes/User.php
+-'  385  1  /f/sys/www/nitroxy/classes/User.php
+-'  1  0  /f/sys/www/nitroxy/classes/User.php
+-'  62  0  /f/sys/www/nitroxy/classes/Ticket.php
+-'  42  47  ~/.vimrc
+-'  81  11  ~/.vimrc
+-'  41  20  /f/sys/www/nitroxy/classes/Ticket.php
+-'  1  18  ~/dotfiles/.git/COMMIT_EDITMSG
 -'  2  23  ~/dotfiles/vimrc
 -'  1  0  ~/dotfiles/vimrc
 -'  108  19  ~/dotfiles/vimrc
@@ -220,22 +171,20 @@
 -'  293  0  /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
 -'  1  0  /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
 -'  49  11  /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
--'  79  0  ~/.vimrc
+-'  78  0  ~/.vimrc
 -'  52  9  /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
 -'  4  0  /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
 -'  114  19  /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
 -'  263  3  /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
 -'  366  0  /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
 -'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  1  0  ~/.vimrc
--'  101  0  ~/.vimrc
+-'  100  0  ~/.vimrc
 -'  39  0  ~/.vimrc
 -'  65  21  ~/.vimrc
--'  81  12  ~/.vimrc
--'  1  21  ~/dotfiles/.git/COMMIT_EDITMSG
--'  76  57  ~/.vimrc
--'  89  7  ~/.vimrc
--'  83  4  ~/.vimrc
+-'  80  12  ~/.vimrc
+-'  75  57  ~/.vimrc
+-'  88  7  ~/.vimrc
+-'  82  4  ~/.vimrc
 -'  2  0  /f/sys/rails/mage/spec/requests/api.rb
 -'  2  0  /f/sys/rails/mage/spec/requests/api.rb
 -'  2  0  /f/sys/rails/mage/spec/requests/api.rb
@@ -245,7 +194,6 @@
 -'  2  0  /f/sys/rails/mage/spec/requests/api.rb
 -'  2  0  /f/sys/rails/mage/spec/requests/api.rb
 -'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  1  21  ~/dotfiles/.git/COMMIT_EDITMSG
 -'  2  0  /f/sys/rails/mage/spec/requests/api.rb
 -'  2  0  /f/sys/rails/mage/spec/requests/api.rb
 -'  2  0  /f/sys/rails/mage/spec/requests/api.rb
@@ -255,14 +203,6 @@
 -'  2  0  /f/sys/rails/mage/spec/requests/api.rb
 -'  2  0  /f/sys/rails/mage/spec/requests/api.rb
 -'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  1  21  ~/dotfiles/.git/COMMIT_EDITMSG
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  1  21  ~/dotfiles/.git/COMMIT_EDITMSG
 -'  2  0  /f/sys/rails/mage/spec/requests/api.rb
 -'  2  0  /f/sys/rails/mage/spec/requests/api.rb
 -'  2  0  /f/sys/rails/mage/spec/requests/api.rb
@@ -272,97 +212,160 @@
 -'  2  0  /f/sys/rails/mage/spec/requests/api.rb
 -'  2  0  /f/sys/rails/mage/spec/requests/api.rb
 -'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  1  21  ~/dotfiles/.git/COMMIT_EDITMSG
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  1  21  ~/dotfiles/.git/COMMIT_EDITMSG
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  79  0  ~/.vimrc
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  1  0  ~/.vimrc
--'  101  0  ~/.vimrc
--'  39  0  ~/.vimrc
--'  65  21  ~/.vimrc
--'  81  12  ~/.vimrc
--'  1  21  ~/dotfiles/.git/COMMIT_EDITMSG
--'  76  57  ~/.vimrc
--'  89  7  ~/.vimrc
--'  83  4  ~/.vimrc
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
+-'  533  17  /f/sys/www/nitroxy/classes/User.php
+-'  384  111  /f/sys/www/nitroxy/classes/User.php
+-'  532  37  /f/sys/www/nitroxy/classes/User.php
+-'  75  23  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
+-'  52  0  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
+-'  32  45  /f/sys/www/nitroxy/content/sidebar.php
+-'  17  105  /f/sys/www/nitroxy/content/sidebar.php
+-'  49  12  /f/sys/www/nitroxy/content/sidebar.php
+-'  21  5  /f/sys/www/nitroxy/content/sidebar.php
+-'  28  9  /f/sys/www/nitroxy/content/sidebar.php
+-'  101  10  /f/sys/www/nitroxy/content/sidebar.php
 
 # Buffer list:
-%~/dotfiles/vimrc	2	23
+%/f/sys/www/nitroxy/.git/COMMIT_EDITMSG	1	47
 
 # History of marks within files (newest to oldest):
 
-> ~/dotfiles/vimrc
-	"	2	23
-	^	108	20
-	.	108	19
-	+	108	19
+> /f/sys/www/nitroxy/.git/COMMIT_EDITMSG
+	"	1	47
+	^	1	48
+	.	1	48
+	+	1	40
+	+	1	48
 
-> ~/dotfiles/.vimrc
+> /f/sys/www/nitroxy/classes/Ticket.php
+	"	294	10
+	^	65	83
+	.	65	0
+	+	68	0
+	+	68	0
+	+	67	0
+	+	66	0
+	+	65	2
+	+	65	8
+	+	64	15
+	+	65	82
+	+	65	0
+
+> /f/sys/www/nitroxy/GoToFile
 	"	1	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	123	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	56	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	9	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
 
-> ~/dotfiles/.vimr
-	"	1	0
+> /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
+	"	75	23
+	^	14	28
+	.	14	27
+	+	14	27
 
-> ~/dotfiles/.vim/colors/torandi.vim
-	"	45	17
-	^	45	27
-	.	45	26
-	+	2	20
-	+	10	25
-	+	34	0
-	+	33	0
-	+	45	26
+> /f/sys/www/nitroxy/public/scripts/ajax_buyticket.php
+	"	12	16
 
-> /f/sys/data/Downloads/desert.vim
-	"	22	15
+> /f/sys/www/nitroxy/content/sidebar.php
+	"	32	45
+	^	17	94
+	.	17	93
+	+	17	95
+	+	17	0
+	+	17	117
+	+	56	0
+	+	17	93
 
-> ~/dotfiles/.vim/colors/linduxed.vim
-	"	1	0
+> /f/sys/data/code/misc/php_console/.git/COMMIT_EDITMSG
+	"	1	25
+	^	1	26
+	.	1	25
+	+	1	25
 
-> /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
-	"	293	0
-	^	107	24
-	.	108	0
-	+	4	0
-	+	106	0
-	+	108	0
-	+	107	0
-	+	108	0
+> /f/sys/data/code/misc/php_console/console.php
+	"	9	19
+	.	9	0
+	+	9	0
+
+> /f/sys/www/nitroxy/console.php
+	"	40	1
+	.	40	0
+	+	30	0
+	+	29	0
+	+	29	0
+	+	29	0
+	+	41	0
+	+	42	0
+	+	42	0
+	+	42	0
+	+	40	0
 
 > ~/.vimrc
-	"	79	0
-	^	79	0
-	.	79	0
-	+	101	0
-	+	82	0
-	+	79	0
-
-> /usr/share/vim/vim73/doc/options.txt
-	"	3841	26
-
-> ~/dotfiles/.git/COMMIT_EDITMSG
-	"	1	21
-	^	1	22
-	.	1	21
-	+	1	21
+	"	70	4
+	^	50	49
+	.	70	0
+	+	100	0
+	+	81	0
+	+	78	0
+	+	81	11
+	+	70	0

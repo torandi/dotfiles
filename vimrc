@@ -67,7 +67,6 @@ set backspace=indent,eol,start " Allow backspacing over everything in insert mod
 set winaltkeys=no " Allow mapping of alt (meta) key shortcuts.
 set ruler " Show the cursor position all the time.
 set showcmd " Display incomplete commands.
-set hlsearch " Highlight search patterns.
 set ignorecase " Ignore case.
 set smartcase " Ignore case when the pattern contains lowercase letters only.
 set showtabline=1 " Show tab page labels if there is more than one tab.
@@ -79,7 +78,7 @@ set hidden " Allows hidden buffers
 set cursorline " Shows what line the cursor is on
 set cursorcolumn " Shows what column the cursor is on
 set incsearch
-set mouse=a " Allow the mouse in normal mode.
+set mouse=n " Allow the mouse in normal mode and visual mode.
 set showmatch
 set autoindent
 

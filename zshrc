@@ -42,8 +42,8 @@ alias ll=ls\ -l
 alias mv=mv\ -v
 alias playlist=mplayer\ -playlist
 alias irc='ssh o -t "screen -rd"'
+alias cgrep='grep --color -n'
 
-#
 # SCRIPTS
 #
 
