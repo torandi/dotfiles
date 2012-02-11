@@ -8,46 +8,51 @@
 # hlsearch on (H) or off (h):
 ~H
 # Last Search Pattern:
-~MSle0~/status
+~MSle0~/has_pass
 
 # Command Line History (newest to oldest):
-:q!
 :q
-:w
-:e content/sidebar.php
-:e public/scripts/ajax_buyticket.php
-:nohlsearch
-:W
-:383
-:838
-:e classes/User.php
-:tabnew
-:sp
 :colorscheme linduxed
-:colorscheme default
-:colorscheme desert
-:e ~/.vimrc
-:~/.vimrc
-:colorscheme torandi
-:e linduxed.vim
-:e ~/Downloads/desert.vim
+:colorscheme Dim
+:e ~/dev/gamedev-toolkit/renderer.cpp
+:vs
+:q!
+:q1
+:69
+:w
+:e classes/BasicObject.php
+:sp
+:e classes/Ticket.php
+:tabnew
+:e content/sidebar.php
+:nohlsearch
+:nohi
+:73
+:3
+:e public/scripts/ajax_buyticket.php
+:e classes/UnresolvedTicket.php
 
 # Search String History (newest to oldest):
-??status
-?/event
-?/hl
-?/id
-?/paid_ti
-?/has_
-?/has_ticket
-?/from_ow
-?/tickets
-?/tickets()
-?/alias for
-?/has_tickets
-?/render_sky
-?/Easy
-?/fold
+?/has_pass
+?/login
+?/this->errors
+?/validate()
+?/validate
+?/add_error
+?/bind_param
+?/bind_params
+?/bind_par
+?/full
+?/all_res
+?/Rad
+?/seat()
+?/__cal
+?/__methe
+?/__get
+?/seats
+?/Seat
+?/seat
+?/ticket()
 
 # Expression History (newest to oldest):
 
@@ -57,78 +62,114 @@
 
 # Registers:
 "0	LINE	0
-		$tickets=Ticket::selection("owner"=>$user->id(), "orders.event_id"=>$event->id);
-"1	LINE	0
-	set hlsearch " Highlight search patterns.
-"2	CHAR	0
-	$event->
-"3	LINE	0
-			$query = "
-				SELECT
-					1
-				FROM
-					`tickets`,
-					`orders`
-				WHERE
-					`tickets`.`order_id` = `orders`.`order_id` AND
-					`tickets`.`owner` = ? AND
-					`orders`.`event_id` = ? AND
-					`orders`.`status` = ?
-				LIMIT 1";
-			$stmt = $db->prepare_full($query, null, 'iii', $this->id(),$event_id ,ORDER_STATUS_PAID);
-			$result=$stmt->fetch();
-			$stmt->close();
-			return $result;
-"4	LINE	0
-			
-"5	LINE	0
+			$this->errors = array();
+""1	LINE	0
 	
-"6	LINE	0
-		/**
-"7	LINE	0
-		* alias for from_owner
-		*/
-		public static function from_user_id($owner=null) {
-			return Ticket::from_owner($owner);
+	/**
+	 * Just to verify that you actually edited the config.
+	 */
+	die("Configuration error: holder of this working-copy hasn't made his/her homework, go play with a kitten! (or fix your inc_settings.php)");
+"2	LINE	0
+			$this->errors = 
+"3	LINE	0
+				$this->validate_equal_to('
+"4	LINE	0
+		$tickets=Ticket::from_owner($user->id);
+		foreach($tickets as $t) {
+			if($t->order()->status()==ORDER_STATUS_NEW) {
+				$ticket=$t;
+				break;
+			}
 		}
+"5	LINE	0
+					die("DERP");
+"6	LINE	0
+					die("DERP");
+"7	LINE	0
+				print 
 "8	LINE	0
 	
 "9	LINE	0
-		/**
-		* Hämtar en array av biljetter från databasen genom att använda användarens id.
-		* @param int owner
-		* @return Ticket[] Array of Tickets (array might be empty)
-		*/
-		public static function from_owner($owner=null,$event_id=null) {
-			global $u;
-			global $event;
-			if(is_null($owner)) {
-				$owner=$u->id;
-			}
-			if(is_null($event_id)) {
-				$event_id = $event->id;
-			}
-			return Ticket::selection(array("owner"=>$owner, "orders.event_id"=>$event_id));
-		}
-""-	CHAR	0
-	owren
+		/*public function seat() {
+			return $this->Seats;
+		}*/
+"-	CHAR	0
+	/
 
 # File marks:
-'0  1  47  /f/sys/www/nitroxy/.git/COMMIT_EDITMSG
-'1  75  23  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
-'2  70  4  ~/.vimrc
-'3  93  41  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
-'4  42  47  ~/.vimrc
-'5  81  11  ~/.vimrc
-'6  41  20  /f/sys/www/nitroxy/classes/Ticket.php
-'7  1  18  ~/dotfiles/.git/COMMIT_EDITMSG
-'8  2  23  ~/dotfiles/vimrc
-'9  108  19  ~/dotfiles/vimrc
+'0  1  0  ~/dotfiles/.vim/colors/Dim.vim
+'1  160  17  /f/sys/www/nitroxy/classes/User.php
+'2  44  0  /f/sys/www/nitroxy/inc_settings.php
+'3  11  32  /f/sys/www/nitroxy/inc_settings.php
+'4  113  8  /f/sys/www/nitroxy/classes/Seat.php
+'5  58  31  /f/sys/www/nitroxy/content/main/checkin_confirm.php
+'6  68  23  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
+'7  70  4  ~/.vimrc
+'8  86  41  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
+'9  42  47  ~/.vimrc
 
 # Jumplist (newest first):
--'  1  47  /f/sys/www/nitroxy/.git/COMMIT_EDITMSG
--'  75  23  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
--'  52  0  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
+-'  1  0  ~/dotfiles/.vim/colors/Dim.vim
+-'  160  17  /f/sys/www/nitroxy/classes/User.php
+-'  107  9  /f/sys/www/nitroxy/classes/User.php
+-'  20  0  /f/sys/www/nitroxy/classes/User.php
+-'  47  0  /f/sys/www/nitroxy/classes/User.php
+-'  1  0  /f/sys/www/nitroxy/classes/User.php
+-'  44  0  /f/sys/www/nitroxy/inc_settings.php
+-'  1  0  /f/sys/www/nitroxy/inc_settings.php
+-'  11  32  /f/sys/www/nitroxy/inc_settings.php
+-'  113  8  /f/sys/www/nitroxy/classes/Seat.php
+-'  50  3  /f/sys/www/nitroxy/classes/Seat.php
+-'  112  2  /f/sys/www/nitroxy/classes/Seat.php
+-'  218  34  /f/sys/www/nitroxy/classes/Ticket.php
+-'  215  3  /f/sys/www/nitroxy/classes/Ticket.php
+-'  34  19  /f/sys/www/nitroxy/classes/TeamMember.php
+-'  1  0  /f/sys/www/nitroxy/classes/Tournament.php
+-'  5  0  /f/sys/www/nitroxy/content/main/tournament.php
+-'  38  2  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
+-'  1  0  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
+-'  58  31  /f/sys/www/nitroxy/content/main/checkin_confirm.php
+-'  21  33  /f/sys/www/nitroxy/content/main/checkin_confirm.php
+-'  85  29  /f/sys/www/nitroxy/content/main/checkin_confirm.php
+-'  82  11  /f/sys/www/nitroxy/content/main/checkin_confirm.php
+-'  23  10  /f/sys/www/nitroxy/content/main/checkin_confirm.php
+-'  94  2  /f/sys/www/nitroxy/content/main/checkin_confirm.php
+-'  16  32  /f/sys/www/nitroxy/content/main/checkin_confirm.php
+-'  6  0  /f/sys/www/nitroxy/content/main/checkin_confirm.php
+-'  73  5  /f/sys/www/nitroxy/content/main/checkin_confirm.php
+-'  528  9  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  526  4  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  316  47  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  194  20  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  311  2  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  8  3  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  5  0  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  538  6  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  532  7  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  315  0  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  174  0  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  1  0  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  625  25  /f/sys/www/nitroxy/classes/User.php
+-'  633  17  /f/sys/www/nitroxy/classes/User.php
+-'  630  0  /f/sys/www/nitroxy/classes/User.php
+-'  631  0  /f/sys/www/nitroxy/classes/User.php
+-'  622  26  /f/sys/www/nitroxy/classes/User.php
+-'  532  28  /f/sys/www/nitroxy/classes/User.php
+-'  382  21  /f/sys/www/nitroxy/classes/User.php
+-'  679  38  /f/sys/www/nitroxy/classes/User.php
+-'  378  17  /f/sys/www/nitroxy/classes/Ticket.php
+-'  372  62  /f/sys/www/nitroxy/classes/Ticket.php
+-'  366  12  /f/sys/www/nitroxy/classes/Ticket.php
+-'  364  55  /f/sys/www/nitroxy/classes/Ticket.php
+-'  359  1  /f/sys/www/nitroxy/classes/Ticket.php
+-'  29  9  /f/sys/www/nitroxy/public/scripts/ajax_buyticket.php
+-'  216  12  /f/sys/www/nitroxy/classes/UnresolvedTicket.php
+-'  1  0  /f/sys/www/nitroxy/classes/UnresolvedTicket.php
+-'  1  0  /f/sys/www/nitroxy/classes/Ticket.php
+-'  33  8  /f/sys/www/nitroxy/content/main/ticket_activate.php
+-'  1  0  /f/sys/www/nitroxy/content/main/ticket_activate.php
+-'  68  23  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
+-'  45  0  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
 -'  32  45  /f/sys/www/nitroxy/content/sidebar.php
 -'  17  105  /f/sys/www/nitroxy/content/sidebar.php
 -'  49  12  /f/sys/www/nitroxy/content/sidebar.php
@@ -136,110 +177,63 @@
 -'  28  9  /f/sys/www/nitroxy/content/sidebar.php
 -'  101  10  /f/sys/www/nitroxy/content/sidebar.php
 -'  44  14  /f/sys/www/nitroxy/content/sidebar.php
--'  294  10  /f/sys/www/nitroxy/classes/Ticket.php
--'  1  0  /f/sys/www/nitroxy/classes/Ticket.php
--'  70  4  ~/.vimrc
--'  1  0  ~/.vimrc
--'  93  41  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
--'  14  41  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
+-'  1  22  /f/sys/www/nitroxy/.git/COMMIT_EDITMSG
+-'  113  8  /f/sys/www/nitroxy/classes/Seat.php
+-'  50  3  /f/sys/www/nitroxy/classes/Seat.php
+-'  112  2  /f/sys/www/nitroxy/classes/Seat.php
+-'  218  34  /f/sys/www/nitroxy/classes/Ticket.php
+-'  215  3  /f/sys/www/nitroxy/classes/Ticket.php
+-'  34  19  /f/sys/www/nitroxy/classes/TeamMember.php
+-'  1  0  /f/sys/www/nitroxy/classes/Tournament.php
+-'  5  0  /f/sys/www/nitroxy/content/main/tournament.php
+-'  38  2  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
 -'  1  0  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
--'  533  17  /f/sys/www/nitroxy/classes/User.php
--'  384  111  /f/sys/www/nitroxy/classes/User.php
--'  532  37  /f/sys/www/nitroxy/classes/User.php
--'  531  0  /f/sys/www/nitroxy/classes/User.php
--'  723  9  /f/sys/www/nitroxy/classes/User.php
--'  643  4  /f/sys/www/nitroxy/classes/User.php
--'  641  35  /f/sys/www/nitroxy/classes/User.php
--'  640  4  /f/sys/www/nitroxy/classes/User.php
--'  628  5  /f/sys/www/nitroxy/classes/User.php
--'  385  1  /f/sys/www/nitroxy/classes/User.php
--'  1  0  /f/sys/www/nitroxy/classes/User.php
--'  62  0  /f/sys/www/nitroxy/classes/Ticket.php
--'  42  47  ~/.vimrc
--'  81  11  ~/.vimrc
--'  41  20  /f/sys/www/nitroxy/classes/Ticket.php
--'  1  18  ~/dotfiles/.git/COMMIT_EDITMSG
--'  2  23  ~/dotfiles/vimrc
--'  1  0  ~/dotfiles/vimrc
--'  108  19  ~/dotfiles/vimrc
--'  1  0  ~/dotfiles/.vimrc
--'  1  0  ~/dotfiles/.vimr
--'  1  0  ~/dotfiles/.vim/colors/linduxed.vim
--'  22  15  /f/sys/data/Downloads/desert.vim
--'  33  24  ~/dotfiles/.vim/colors/torandi.vim
--'  1  0  ~/dotfiles/.vim/colors/torandi.vim
--'  293  0  /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
--'  1  0  /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
--'  49  11  /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
--'  78  0  ~/.vimrc
--'  52  9  /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
--'  4  0  /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
--'  114  19  /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
--'  263  3  /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
--'  366  0  /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  100  0  ~/.vimrc
--'  39  0  ~/.vimrc
--'  65  21  ~/.vimrc
--'  80  12  ~/.vimrc
--'  75  57  ~/.vimrc
--'  88  7  ~/.vimrc
--'  82  4  ~/.vimrc
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  2  0  /f/sys/rails/mage/spec/requests/api.rb
--'  533  17  /f/sys/www/nitroxy/classes/User.php
--'  384  111  /f/sys/www/nitroxy/classes/User.php
--'  532  37  /f/sys/www/nitroxy/classes/User.php
--'  75  23  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
--'  52  0  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
--'  32  45  /f/sys/www/nitroxy/content/sidebar.php
--'  17  105  /f/sys/www/nitroxy/content/sidebar.php
--'  49  12  /f/sys/www/nitroxy/content/sidebar.php
--'  21  5  /f/sys/www/nitroxy/content/sidebar.php
--'  28  9  /f/sys/www/nitroxy/content/sidebar.php
--'  101  10  /f/sys/www/nitroxy/content/sidebar.php
+-'  58  31  /f/sys/www/nitroxy/content/main/checkin_confirm.php
+-'  21  33  /f/sys/www/nitroxy/content/main/checkin_confirm.php
+-'  85  29  /f/sys/www/nitroxy/content/main/checkin_confirm.php
+-'  82  11  /f/sys/www/nitroxy/content/main/checkin_confirm.php
+-'  23  10  /f/sys/www/nitroxy/content/main/checkin_confirm.php
+-'  94  2  /f/sys/www/nitroxy/content/main/checkin_confirm.php
+-'  16  32  /f/sys/www/nitroxy/content/main/checkin_confirm.php
+-'  6  0  /f/sys/www/nitroxy/content/main/checkin_confirm.php
+-'  73  5  /f/sys/www/nitroxy/content/main/checkin_confirm.php
+-'  528  9  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  526  4  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  316  47  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  194  20  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  311  2  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  8  3  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  5  0  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  538  6  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  532  7  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  315  0  /f/sys/www/nitroxy/content/main/checkin_new.php
 
 # Buffer list:
-%/f/sys/www/nitroxy/.git/COMMIT_EDITMSG	1	47
+%~/dotfiles/.vim/colors/Dim.vim	1	0
+%/f/sys/data/code/misc/gamedev-toolkit/renderer.cpp	125	12
 
 # History of marks within files (newest to oldest):
 
-> /f/sys/www/nitroxy/.git/COMMIT_EDITMSG
-	"	1	47
-	^	1	48
-	.	1	48
-	+	1	40
-	+	1	48
+> ~/dotfiles/.vim/colors/Dim.vim
+	"	1	0
+
+> /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
+	"	125	12
+
+> /f/sys/www/nitroxy/classes/User.php
+	"	160	17
+
+> /f/sys/www/nitroxy/inc_settings.php
+	"	44	0
+	^	11	33
+	.	45	0
+	+	11	32
+	+	45	0
 
 > /f/sys/www/nitroxy/classes/Ticket.php
-	"	294	10
-	^	65	83
-	.	65	0
+	"	218	34
+	^	218	35
+	.	218	34
 	+	68	0
 	+	68	0
 	+	67	0
@@ -249,45 +243,64 @@
 	+	64	15
 	+	65	82
 	+	65	0
+	+	336	0
+	+	335	0
+	+	334	4
+	+	332	2
+	+	334	17
+	+	336	0
+	+	334	0
+	+	338	0
+	+	337	36
+	+	338	0
+	+	338	0
+	+	356	0
+	+	355	6
+	+	390	0
+	+	51	21
+	+	77	0
+	+	77	0
+	+	77	20
+	+	77	3
+	+	77	0
+	+	271	0
+	+	266	11
+	+	266	30
+	+	268	0
+	+	266	32
+	+	267	0
+	+	268	14
+	+	266	38
+	+	267	20
+	+	268	20
+	+	270	14
+	+	89	17
+	+	215	2
+	+	219	0
+	+	218	34
+
+> /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
+	"	38	2
+	.	14	0
+	+	14	0
+
+> /f/sys/www/nitroxy/classes/BasicObject.php
+	"	447	2
+	.	447	0
+	+	523	65
+	+	525	0
+	+	525	0
+	+	523	65
+	+	524	0
+	+	1103	0
+	+	524	62
+	+	447	17
+	+	447	0
+	a	525	3
 
 > /f/sys/www/nitroxy/GoToFile
 	"	1	0
-	.	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	123	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	56	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	9	0
+	.	47	0
 	+	1	0
 	+	1	0
 	+	1	0
@@ -315,57 +328,82 @@
 	+	1	0
 	+	1	0
 	+	1	0
+	+	196	0
 	+	1	0
+	+	164	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	101	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	71	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	68	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	64	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	47	0
 
-> /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
-	"	75	23
-	^	14	28
-	.	14	27
-	+	14	27
+> /f/sys/www/nitroxy/content/main/tournament.php
+	"	5	0
 
-> /f/sys/www/nitroxy/public/scripts/ajax_buyticket.php
-	"	12	16
-
-> /f/sys/www/nitroxy/content/sidebar.php
-	"	32	45
-	^	17	94
-	.	17	93
-	+	17	95
-	+	17	0
-	+	17	117
-	+	56	0
-	+	17	93
-
-> /f/sys/data/code/misc/php_console/.git/COMMIT_EDITMSG
-	"	1	25
-	^	1	26
-	.	1	25
-	+	1	25
-
-> /f/sys/data/code/misc/php_console/console.php
-	"	9	19
-	.	9	0
-	+	9	0
-
-> /f/sys/www/nitroxy/console.php
-	"	40	1
-	.	40	0
-	+	30	0
-	+	29	0
-	+	29	0
-	+	29	0
-	+	41	0
-	+	42	0
-	+	42	0
-	+	42	0
-	+	40	0
-
-> ~/.vimrc
-	"	70	4
-	^	50	49
-	.	70	0
-	+	100	0
-	+	81	0
-	+	78	0
-	+	81	11
-	+	70	0
+> /f/sys/www/nitroxy/classes/Tournament.php
+	"	1	0
