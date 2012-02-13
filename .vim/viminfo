@@ -8,51 +8,57 @@
 # hlsearch on (H) or off (h):
 ~H
 # Last Search Pattern:
-~MSle0~/has_pass
+~MSle0~/#news
+
+# Last Substitute Search Pattern:
+~MSle0&animate()
+
+# Last Substitute String:
+$maybe_start_ship()
 
 # Command Line History (newest to oldest):
 :q
-:colorscheme linduxed
-:colorscheme Dim
-:e ~/dev/gamedev-toolkit/renderer.cpp
-:vs
-:q!
-:q1
-:69
 :w
-:e classes/BasicObject.php
+:q!
+:W
+:e content/event/nx14/head.php
 :sp
-:e classes/Ticket.php
-:tabnew
-:e content/sidebar.php
+:mw
+:%s/animate()/maybe_start_ship()/gc
+:247
 :nohlsearch
-:nohi
-:73
-:3
-:e public/scripts/ajax_buyticket.php
-:e classes/UnresolvedTicket.php
+:e ~/.vimrc
+:v
+:'<,'>s/_loltroll_/xwing/g
+:'<,'>s/xwing/tie/g
+:'<,'>s/tie/_loltroll_/g
+:%s/xwing_speed/xwing['speed']/g
+:%s/tie_speed/tie['speed']/g
+:%s/xwing_\(.\)/xwing['\1']/gc
+:%s/xwing_\(.*\)/xwing['\1']/g
+:%s/xwing_\(.\)/xwing['\1']/g
 
 # Search String History (newest to oldest):
-?/has_pass
-?/login
-?/this->errors
-?/validate()
-?/validate
-?/add_error
-?/bind_param
-?/bind_params
-?/bind_par
-?/full
-?/all_res
-?/Rad
-?/seat()
-?/__cal
-?/__methe
-?/__get
-?/seats
-?/Seat
-?/seat
-?/ticket()
+?/#news
+?/scene = scene1
+?/mipmap
+?/load
+?/loa
+?/scene3()
+?/Texture
+?/loadTe
+?/#newstab
+?/header
+?/sidebare
+?/Orbitron
+?/'
+?/Orbitr
+?/Ale
+?/Telex
+?/Aleg
+?/head
+?/#main .head
+?/light_blue
 
 # Expression History (newest to oldest):
 
@@ -62,348 +68,387 @@
 
 # Registers:
 "0	LINE	0
-			$this->errors = array();
-""1	LINE	0
-	
-	/**
-	 * Just to verify that you actually edited the config.
-	 */
-	die("Configuration error: holder of this working-copy hasn't made his/her homework, go play with a kitten! (or fix your inc_settings.php)");
+	    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_BASE_LEVEL, 0);
+"1	LINE	0
+	    //gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_LOD, 0);
 "2	LINE	0
-			$this->errors = 
+	    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAX_LOD, 100);
 "3	LINE	0
-				$this->validate_equal_to('
+	    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_BASE_LEVEL, 0);
+	    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAX_LEVEL, 2);
 "4	LINE	0
-		$tickets=Ticket::from_owner($user->id);
-		foreach($tickets as $t) {
-			if($t->order()->status()==ORDER_STATUS_NEW) {
-				$ticket=$t;
-				break;
-			}
-		}
+	    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_BASE_LEVEL, 0);
 "5	LINE	0
-					die("DERP");
+	    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAX_LEVEL, 2);
 "6	LINE	0
-					die("DERP");
-"7	LINE	0
-				print 
-"8	LINE	0
 	
+"7	LINE	0
+		gl.Hint(gl.PERSPECTIVE_CORRECTION_HINT, gl.NICEST);
+"8	LINE	0
+		 gl.texParameteri(gl.TEXTURE_2D, gl.GENERATE_MIPMAP, true);
 "9	LINE	0
-		/*public function seat() {
-			return $this->Seats;
-		}*/
-"-	CHAR	0
+		 /*font-weight: bold;*/
+""-	CHAR	0
 	/
 
 # File marks:
-'0  1  0  ~/dotfiles/.vim/colors/Dim.vim
-'1  160  17  /f/sys/www/nitroxy/classes/User.php
-'2  44  0  /f/sys/www/nitroxy/inc_settings.php
-'3  11  32  /f/sys/www/nitroxy/inc_settings.php
-'4  113  8  /f/sys/www/nitroxy/classes/Seat.php
-'5  58  31  /f/sys/www/nitroxy/content/main/checkin_confirm.php
-'6  68  23  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
-'7  70  4  ~/.vimrc
-'8  86  41  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
-'9  42  47  ~/.vimrc
+'0  1  12  ~/dotfiles/.git/COMMIT_EDITMSG
+'1  1  0  /f/sys/www/nitroxy/.git/config
+'2  62  0  ~/.vimrc
+'3  1  24  /f/sys/www/nitroxy/.git/COMMIT_EDITMSG
+'4  278  12  /f/sys/www/nitroxy/public/event/nx14/style.php
+'5  569  17  /f/sys/www/nitroxy/public/event/nx14/effects.js
+'6  403  1  /f/sys/www/nitroxy/public/event/nx14/effects.js
+'7  33  0  /f/sys/www/nitroxy/content/event/nx14/head.php
+'8  266  12  /f/sys/www/nitroxy/public/event/nx14/style.php
+'9  86  0  /f/sys/www/nitroxy/public/scripts/draw_map2.php
 
 # Jumplist (newest first):
--'  1  0  ~/dotfiles/.vim/colors/Dim.vim
--'  160  17  /f/sys/www/nitroxy/classes/User.php
--'  107  9  /f/sys/www/nitroxy/classes/User.php
--'  20  0  /f/sys/www/nitroxy/classes/User.php
--'  47  0  /f/sys/www/nitroxy/classes/User.php
--'  1  0  /f/sys/www/nitroxy/classes/User.php
--'  44  0  /f/sys/www/nitroxy/inc_settings.php
--'  1  0  /f/sys/www/nitroxy/inc_settings.php
--'  11  32  /f/sys/www/nitroxy/inc_settings.php
--'  113  8  /f/sys/www/nitroxy/classes/Seat.php
--'  50  3  /f/sys/www/nitroxy/classes/Seat.php
--'  112  2  /f/sys/www/nitroxy/classes/Seat.php
--'  218  34  /f/sys/www/nitroxy/classes/Ticket.php
--'  215  3  /f/sys/www/nitroxy/classes/Ticket.php
--'  34  19  /f/sys/www/nitroxy/classes/TeamMember.php
--'  1  0  /f/sys/www/nitroxy/classes/Tournament.php
--'  5  0  /f/sys/www/nitroxy/content/main/tournament.php
--'  38  2  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
--'  1  0  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
--'  58  31  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  21  33  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  85  29  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  82  11  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  23  10  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  94  2  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  16  32  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  6  0  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  73  5  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  528  9  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  526  4  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  316  47  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  194  20  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  311  2  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  8  3  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  5  0  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  538  6  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  532  7  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  315  0  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  174  0  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  1  0  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  625  25  /f/sys/www/nitroxy/classes/User.php
--'  633  17  /f/sys/www/nitroxy/classes/User.php
--'  630  0  /f/sys/www/nitroxy/classes/User.php
--'  631  0  /f/sys/www/nitroxy/classes/User.php
--'  622  26  /f/sys/www/nitroxy/classes/User.php
--'  532  28  /f/sys/www/nitroxy/classes/User.php
--'  382  21  /f/sys/www/nitroxy/classes/User.php
--'  679  38  /f/sys/www/nitroxy/classes/User.php
--'  378  17  /f/sys/www/nitroxy/classes/Ticket.php
--'  372  62  /f/sys/www/nitroxy/classes/Ticket.php
--'  366  12  /f/sys/www/nitroxy/classes/Ticket.php
--'  364  55  /f/sys/www/nitroxy/classes/Ticket.php
--'  359  1  /f/sys/www/nitroxy/classes/Ticket.php
--'  29  9  /f/sys/www/nitroxy/public/scripts/ajax_buyticket.php
--'  216  12  /f/sys/www/nitroxy/classes/UnresolvedTicket.php
--'  1  0  /f/sys/www/nitroxy/classes/UnresolvedTicket.php
--'  1  0  /f/sys/www/nitroxy/classes/Ticket.php
--'  33  8  /f/sys/www/nitroxy/content/main/ticket_activate.php
--'  1  0  /f/sys/www/nitroxy/content/main/ticket_activate.php
--'  68  23  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
--'  45  0  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
--'  32  45  /f/sys/www/nitroxy/content/sidebar.php
--'  17  105  /f/sys/www/nitroxy/content/sidebar.php
--'  49  12  /f/sys/www/nitroxy/content/sidebar.php
--'  21  5  /f/sys/www/nitroxy/content/sidebar.php
--'  28  9  /f/sys/www/nitroxy/content/sidebar.php
--'  101  10  /f/sys/www/nitroxy/content/sidebar.php
--'  44  14  /f/sys/www/nitroxy/content/sidebar.php
--'  1  22  /f/sys/www/nitroxy/.git/COMMIT_EDITMSG
--'  113  8  /f/sys/www/nitroxy/classes/Seat.php
--'  50  3  /f/sys/www/nitroxy/classes/Seat.php
--'  112  2  /f/sys/www/nitroxy/classes/Seat.php
--'  218  34  /f/sys/www/nitroxy/classes/Ticket.php
--'  215  3  /f/sys/www/nitroxy/classes/Ticket.php
--'  34  19  /f/sys/www/nitroxy/classes/TeamMember.php
--'  1  0  /f/sys/www/nitroxy/classes/Tournament.php
--'  5  0  /f/sys/www/nitroxy/content/main/tournament.php
--'  38  2  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
--'  1  0  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
--'  58  31  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  21  33  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  85  29  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  82  11  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  23  10  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  94  2  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  16  32  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  6  0  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  73  5  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  528  9  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  526  4  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  316  47  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  194  20  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  311  2  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  8  3  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  5  0  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  538  6  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  532  7  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  315  0  /f/sys/www/nitroxy/content/main/checkin_new.php
+-'  1  12  ~/dotfiles/.git/COMMIT_EDITMSG
+-'  1  0  /f/sys/www/nitroxy/.git/config
+-'  62  0  ~/.vimrc
+-'  1  0  ~/.vimrc
+-'  1  24  /f/sys/www/nitroxy/.git/COMMIT_EDITMSG
+-'  278  12  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  1  0  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  569  17  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  400  13  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  401  11  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  1  0  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  403  1  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  363  39  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  221  3  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  326  4  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  362  0  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  327  5  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  33  0  /f/sys/www/nitroxy/content/event/nx14/head.php
+-'  543  13  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  355  21  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  266  12  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  86  0  /f/sys/www/nitroxy/public/scripts/draw_map2.php
+-'  1  0  /f/sys/www/nitroxy/public/scripts/draw_map2.php
+-'  206  25  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  3  0  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  257  24  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  119  0  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  31  64  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  150  13  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  265  13  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  88  21  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  46  13  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  255  8  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  212  14  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  202  14  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  58  0  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  35  14  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  26  0  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  9  30  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  10  2  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  213  15  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  15  23  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  8  6  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  7  1  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  424  0  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  207  12  /f/sys/www/nitroxy/public/event/nx14/style.php
+-'  18  3  /f/sys/www/nitroxy/content/sidebar.php
+-'  1  3  /f/sys/www/nitroxy/content/sidebar.php
+-'  17  3  /f/sys/www/nitroxy/content/sidebar.php
+-'  593  18  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  596  1  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  590  19  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  586  7  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  589  2  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  588  0  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  532  21  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  527  12  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  361  71  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  525  0  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  501  24  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  491  17  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  373  75  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  572  9  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  517  16  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  605  37  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  228  16  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  206  16  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  148  0  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  250  30  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  205  4  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  606  0  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  276  2  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  271  6  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  15  31  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  113  0  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  101  29  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  100  29  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  379  3  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  472  4  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  108  13  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  331  16  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  346  7  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  272  0  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  448  11  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  120  0  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  435  5  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  44  0  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  33  0  /f/sys/www/nitroxy/content/event/nx14/head.php
+-'  86  0  /f/sys/www/nitroxy/public/scripts/draw_map2.php
+-'  1  0  /f/sys/www/nitroxy/public/scripts/draw_map2.php
+-'  569  17  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  400  13  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  401  11  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  1  0  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  403  1  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  363  39  /f/sys/www/nitroxy/public/event/nx14/effects.js
+-'  221  3  /f/sys/www/nitroxy/public/event/nx14/effects.js
 
 # Buffer list:
-%~/dotfiles/.vim/colors/Dim.vim	1	0
-%/f/sys/data/code/misc/gamedev-toolkit/renderer.cpp	125	12
+%~/dotfiles/.git/COMMIT_EDITMSG	1	12
 
 # History of marks within files (newest to oldest):
 
-> ~/dotfiles/.vim/colors/Dim.vim
+> ~/dotfiles/.git/COMMIT_EDITMSG
+	"	1	12
+	^	1	13
+	.	1	12
+	+	1	12
+
+> /f/sys/www/nitroxy/.git/config
 	"	1	0
 
-> /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
-	"	125	12
+> ~/.vimrc
+	"	62	0
+	^	80	2
+	.	80	1
+	+	76	0
+	+	62	0
+	+	80	1
 
-> /f/sys/www/nitroxy/classes/User.php
-	"	160	17
+> /f/sys/www/nitroxy/.git/COMMIT_EDITMSG
+	"	1	24
+	^	1	25
+	.	1	24
+	+	1	24
 
-> /f/sys/www/nitroxy/inc_settings.php
-	"	44	0
-	^	11	33
-	.	45	0
-	+	11	32
-	+	45	0
+> /f/sys/www/nitroxy/public/event/nx14/style.php
+	"	278	12
+	^	278	13
+	.	278	12
+	+	499	1
+	+	499	2
+	+	499	0
+	+	499	16
+	+	499	0
+	+	40	0
+	+	493	1
+	+	489	0
+	+	493	0
+	+	492	17
+	+	486	18
+	+	488	7
+	+	486	18
+	+	499	0
+	+	499	0
+	+	494	0
+	+	496	20
+	+	497	14
+	+	498	0
+	+	49	1
+	+	54	1
+	+	52	0
+	+	54	0
+	+	207	26
+	+	208	22
+	+	8	26
+	+	207	17
+	+	208	0
+	+	9	22
+	+	10	0
+	+	9	30
+	+	207	25
+	+	26	0
+	+	35	0
+	+	35	26
+	+	35	46
+	+	35	0
+	+	257	28
+	+	258	2
+	+	256	18
+	+	258	0
+	+	259	21
+	+	260	39
+	+	259	18
+	+	258	7
+	+	46	13
+	+	257	20
+	+	257	23
+	+	257	21
+	+	257	2
+	+	257	0
+	+	257	0
+	+	257	27
+	+	265	0
+	+	257	22
+	+	46	13
+	+	257	34
+	+	26	0
+	+	34	0
+	+	34	0
+	+	32	1
+	+	31	64
+	+	257	0
+	+	207	13
+	+	206	25
+	+	266	12
+	+	278	12
 
-> /f/sys/www/nitroxy/classes/Ticket.php
-	"	218	34
-	^	218	35
-	.	218	34
-	+	68	0
-	+	68	0
-	+	67	0
-	+	66	0
-	+	65	2
-	+	65	8
-	+	64	15
-	+	65	82
-	+	65	0
-	+	336	0
-	+	335	0
-	+	334	4
-	+	332	2
-	+	334	17
-	+	336	0
-	+	334	0
-	+	338	0
-	+	337	36
-	+	338	0
-	+	338	0
-	+	356	0
-	+	355	6
-	+	390	0
-	+	51	21
-	+	77	0
-	+	77	0
-	+	77	20
-	+	77	3
-	+	77	0
-	+	271	0
-	+	266	11
-	+	266	30
-	+	268	0
-	+	266	32
-	+	267	0
-	+	268	14
-	+	266	38
-	+	267	20
-	+	268	20
-	+	270	14
-	+	89	17
-	+	215	2
-	+	219	0
-	+	218	34
-
-> /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
-	"	38	2
-	.	14	0
-	+	14	0
-
-> /f/sys/www/nitroxy/classes/BasicObject.php
-	"	447	2
-	.	447	0
-	+	523	65
-	+	525	0
-	+	525	0
-	+	523	65
+> /f/sys/www/nitroxy/public/event/nx14/effects.js
+	"	569	17
+	^	535	32
+	.	569	17
+	+	569	17
+	+	534	0
+	+	535	23
+	+	527	22
+	+	535	0
+	+	517	17
+	+	361	5
+	+	362	1
+	+	359	4
+	+	360	68
+	+	535	26
+	+	517	18
+	+	527	22
+	+	532	23
+	+	527	0
+	+	532	0
+	+	535	26
+	+	361	4
+	+	362	0
+	+	535	26
+	+	517	18
+	+	569	17
+	+	335	52
+	+	336	16
+	+	351	75
+	+	352	12
+	+	589	16
+	+	590	18
+	+	591	18
 	+	524	0
-	+	1103	0
-	+	524	62
-	+	447	17
-	+	447	0
-	a	525	3
+	+	573	29
+	+	575	1
+	+	574	0
+	+	407	13
+	+	388	13
+	+	521	16
+	+	522	21
+	+	523	18
+	+	574	0
+	+	597	0
+	+	596	0
+	+	592	20
+	+	593	18
+	+	362	2
+	+	361	71
+	+	527	12
+	+	569	17
+	+	527	13
+	+	361	85
+	+	362	1
+	+	569	17
+	+	360	5
+	+	361	5
+	+	362	3
+	+	359	4
+	+	360	4
+	+	362	61
+	+	569	17
+	+	362	0
+	+	326	49
+	+	362	0
+	+	362	0
+	+	362	0
+	+	362	0
+	+	362	0
+	+	363	0
+	+	362	0
+	+	363	0
+	+	527	12
+	+	363	53
+	+	363	53
+	+	363	56
+	+	363	5
+	+	363	4
+	+	363	4
+	+	363	57
+	+	363	58
+	+	363	5
+	+	363	5
+	+	363	4
+	+	363	4
+	+	363	56
+	+	363	0
+	+	363	0
+	+	569	17
+	+	535	26
+	+	527	12
+	+	535	3
+	+	401	32
+	+	402	33
+	+	403	33
+	+	402	32
+	+	403	32
+	+	400	13
+	+	401	19
+	+	400	0
+	+	400	0
+	+	535	31
+	+	527	12
+	+	569	17
+	h	606	0
+	i	169	44
 
-> /f/sys/www/nitroxy/GoToFile
-	"	1	0
-	.	47	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	196	0
-	+	1	0
-	+	164	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	101	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	71	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	68	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	64	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
+> /f/sys/www/nitroxy/content/event/nx14/head.php
+	"	33	0
+	.	35	72
+	+	1	80
+	+	1	89
+	+	1	0
+	+	41	0
 	+	47	0
+	+	47	0
+	+	49	0
+	+	48	15
+	+	50	0
+	+	48	0
+	+	47	0
+	+	3	0
+	+	3	229
+	+	3	217
+	+	3	0
+	+	3	226
+	+	3	0
+	+	35	72
 
-> /f/sys/www/nitroxy/content/main/tournament.php
-	"	5	0
+> /f/sys/www/nitroxy/public/scripts/draw_map2.php
+	"	86	0
 
-> /f/sys/www/nitroxy/classes/Tournament.php
+> /f/sys/www/nitroxy/content/sidebar.php
+	"	18	3
+	.	18	0
+	+	17	0
+	+	17	0
+	+	18	0
+
+> /f/sys/www/nitroxy/intro
 	"	1	0
+	^	23	0
+	.	22	124
+	+	8	31
+	+	9	83
+	+	25	0
+	+	19	102
+	+	25	0
+	+	24	24
+	+	22	124
