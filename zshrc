@@ -97,7 +97,7 @@ _hostname_color() {
     (jenny)
       echo -n $MAGENTA
       ;;
-    (oxygen)
+    (dopefish)
       echo -n $BLUE
       ;;
     (xenon)
@@ -107,6 +107,9 @@ _hostname_color() {
       echo -n $YELLOW
 		;;
     (plutonium)
+      echo -n $YELLOW
+		;;
+    (ostkaka)
       echo -n $YELLOW
 		;;
 	 (*)
