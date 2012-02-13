@@ -59,7 +59,6 @@ syntax on
 
 set nostartofline " Keep cursor in the same column if possible.
 set whichwrap=b,s,[,],<,>,h,l " Allow cursor to wrap between lines.
-set virtualedit=block " Allow virtual editing in Visual block mode.
 set lazyredraw " Don't redraw screen while executing macros/mappings.
 set scrolloff=1 " Minimal number of screen lines to keep above and below the cursor.
 set incsearch " Enable incremental search.
@@ -74,12 +73,11 @@ set number " Display line numbers.
 set shiftwidth=3 " Spaces for each step of (auto)indent
 set tabstop=3 " Spaces that a <Tab> in the file counts for
 set softtabstop=3 " Spaces that a <Tab> counts for when editing
-set hidden " Allows hidden buffers
 set cursorline " Shows what line the cursor is on
 set cursorcolumn " Shows what column the cursor is on
 set incsearch
-set mouse=n " Allow the mouse in normal mode and visual mode.
-set showmatch
+"set mouse=n " Allow the mouse in normal mode and visual mode.
+" set showmatch
 set autoindent
 
 set smarttab
