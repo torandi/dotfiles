@@ -8,31 +8,39 @@
 # hlsearch on (H) or off (h):
 ~H
 # Last Search Pattern:
-~MSle0~/has_pass
+~MSle0/sqlite
+
+# Last Substitute Search Pattern:
+~MSle0~&stub
+
+# Last Substitute String:
+$account
 
 # Command Line History (newest to oldest):
 :q
-:colorscheme linduxed
-:colorscheme Dim
-:e ~/dev/gamedev-toolkit/renderer.cpp
-:vs
-:q!
-:q1
-:69
+:BundleInstall
+:e ~/.vimrc
 :w
-:e classes/BasicObject.php
-:sp
-:e classes/Ticket.php
-:tabnew
-:e content/sidebar.php
-:nohlsearch
-:nohi
-:73
-:3
-:e public/scripts/ajax_buyticket.php
-:e classes/UnresolvedTicket.php
+:w\
+:'<,'>s/stub/account/gc
+:e app/mage/reports/account_report.rb
+:vs
+:e app/controllers/reports_controller.rb
+:e minijava_programs/Accumulator.java
+:e visitor/ASTPrintVisitor.java
+:e parse/Main.java
+:e syntaxtree/Program.java
+:e syntaxtree/AbstractTree.java
+:e basic_tree/CustomType.java
+:e parse/Main.class
+:ruby 1
+:help command-t
+:help
+:e basic_tree/Start.java
 
 # Search String History (newest to oldest):
+? stub
+?/sqlite
 ?/has_pass
 ?/login
 ?/this->errors
@@ -51,8 +59,6 @@
 ?/__get
 ?/seats
 ?/Seat
-?/seat
-?/ticket()
 
 # Expression History (newest to oldest):
 
@@ -62,53 +68,107 @@
 
 # Registers:
 "0	LINE	0
-			$this->errors = array();
-""1	LINE	0
-	
-	/**
-	 * Just to verify that you actually edited the config.
-	 */
-	die("Configuration error: holder of this working-copy hasn't made his/her homework, go play with a kitten! (or fix your inc_settings.php)");
+	Bundle 'tpope/vim-javascript'
+"1	LINE	0
+	Bundle 'tpope/vim-haml'
 "2	LINE	0
-			$this->errors = 
+	        if @voucher_rows.empty?
 "3	LINE	0
-				$this->validate_equal_to('
+	        else
+	          @balance_difference = 17
+	        end
 "4	LINE	0
-		$tickets=Ticket::from_owner($user->id);
-		foreach($tickets as $t) {
-			if($t->order()->status()==ORDER_STATUS_NEW) {
-				$ticket=$t;
-				break;
-			}
-		}
+	      
 "5	LINE	0
-					die("DERP");
-"6	LINE	0
-					die("DERP");
-"7	LINE	0
-				print 
-"8	LINE	0
 	
+"6	LINE	0
+	
+"7	LINE	0
+	      report = double('report').as_null_object
+"8	LINE	0
+	      
 "9	LINE	0
-		/*public function seat() {
-			return $this->Seats;
-		}*/
-"-	CHAR	0
-	/
+	      re
+""-	CHAR	0
+	tpope
 
 # File marks:
-'0  1  0  ~/dotfiles/.vim/colors/Dim.vim
-'1  160  17  /f/sys/www/nitroxy/classes/User.php
-'2  44  0  /f/sys/www/nitroxy/inc_settings.php
-'3  11  32  /f/sys/www/nitroxy/inc_settings.php
-'4  113  8  /f/sys/www/nitroxy/classes/Seat.php
-'5  58  31  /f/sys/www/nitroxy/content/main/checkin_confirm.php
-'6  68  23  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
-'7  70  4  ~/.vimrc
-'8  86  41  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
-'9  42  47  ~/.vimrc
+'0  96  0  ~/.vimrc
+'1  12  0  /var/rails/mage/app/mage/reports/account_report.rb
+'2  1  0  /var/rails/mage/spec/mage/reports/account_report_spec.r
+'3  2  0  /var/rails/mage/app/mage/report.rb
+'4  1  0  /var/rails/mage/config/application.rb
+'5  16  29  /var/rails/mage/config/application.rb
+'6  36  1  ~/.vimrc
+'7  1  0  /var/rails/mage/app/models/report.rb
+'8  9  3  /var/rails/mage/app/models/series.rb
+'9  2  0  /var/rails/mage/db/schema.rb
 
 # Jumplist (newest first):
+-'  96  0  ~/.vimrc
+-'  31  0  ~/.vimrc
+-'  22  7  ~/.vimrc
+-'  1  0  ~/.vimrc
+-'  12  0  /var/rails/mage/app/mage/reports/account_report.rb
+-'  22  50  /var/rails/mage/app/mage/reports/account_report.rb
+-'  26  2  /var/rails/mage/app/mage/reports/account_report.rb
+-'  19  6  /var/rails/mage/app/mage/reports/account_report.rb
+-'  9  36  /var/rails/mage/spec/mage/reports/account_report_spec.rb
+-'  1  0  /var/rails/mage/spec/mage/reports/account_report_spec.rb
+-'  1  0  /var/rails/mage/spec/mage/reports/account_report_spec.r
+-'  2  0  /var/rails/mage/app/mage/report.rb
+-'  1  0  /var/rails/mage/app/mage/report.rb
+-'  1  0  /var/rails/mage/config/application.rb
+-'  16  29  /var/rails/mage/config/application.rb
+-'  36  1  ~/.vimrc
+-'  1  0  /var/rails/mage/app/models/report.rb
+-'  9  3  /var/rails/mage/app/models/series.rb
+-'  1  0  /var/rails/mage/app/models/series.rb
+-'  2  0  /var/rails/mage/db/schema.rb
+-'  1  0  /var/rails/mage/db/schema.rb
+-'  3  2  /var/rails/mage/app/models/report.rb
+-'  1  18  /var/rails/mage/.git/COMMIT_EDITMSG
+-'  4  122  /var/rails/mage/app/controllers/reports_controller.rb
+-'  10  7  /var/rails/mage/app/views/reports/accounts.html.haml
+-'  41  3  /var/rails/mage/app/views/reports/accounts.html.haml
+-'  1  0  /var/rails/mage/app/views/reports/accounts.html.haml
+-'  1  56  ~/dasak_lab3/cookie_theft.txt
+-'  986  1  /etc/php5/apache2/php.ini
+-'  984  1  /etc/php5/apache2/php.ini
+-'  983  17  /etc/php5/apache2/php.ini
+-'  982  1  /etc/php5/apache2/php.ini
+-'  1  0  /etc/php5/apache2/php.ini
+-'  1  0  ~/dev/ann12/lab1/encoder.m
+-'  3  13  ~/dev/ann12/lab1/nsepdata.m
+-'  1  0  ~/dev/ann12/lab1/nsepdata.m
+-'  1  0  ~/dev/komp12/minijava_programs/Accumulator.java.syntax
+-'  1  0  ~/dev/komp12/minijava_programs/Accumulator.java
+-'  24  6  ~/dev/komp12/src/visitor/ASTPrintVisitor.java
+-'  47  14  ~/dev/komp12/src/parse/Main.java
+-'  26  4  ~/dev/komp12/src/parse/Main.java
+-'  45  84  ~/dev/komp12/src/parse/Main.java
+-'  1  0  ~/dev/komp12/src/visitor/ASTPrintVisitor.java
+-'  61  0  ~/dev/komp12/src/parse/Main.java
+-'  60  1  ~/dev/komp12/src/parse/Main.java
+-'  49  1  ~/dev/komp12/src/parse/Main.java
+-'  1  0  ~/dev/komp12/src/parse/Main.class
+-'  1  0  ~/dev/komp12/src/syntaxtree/AbstractTree.java
+-'  148  0  ~/dev/komp12/src/syntaxtree/AbstractTree.java
+-'  1  0  ~/dev/komp12/src/syntaxtree/Call.java
+-'  14  14  ~/dev/komp12/GRAMMAR
+-'  103  6  ~/dev/komp12/src/parse/minijava.jj
+-'  1  0  ~/dev/komp12/src/parse/minijava.jj
+-'  65  0  ~/dev/komp12/GRAMMAR
+-'  1  0  ~/dev/komp12/GRAMMAR
+-'  210  0  ~/dev/komp12/src/parse/minijava.jj
+-'  1  11  ~/dev/komp12/.git/COMMIT_EDITMSG
+-'  7  24  ~/dev/komp12/GRAMMAR
+-'  10  47  ~/Dropbox/Documents/grostl
+-'  5  4  ~/Dropbox/Documents/grostl
+-'  4  221  ~/Dropbox/Documents/grostl
+-'  1  0  ~/Dropbox/Documents/grostl
+-'  1  10  ~/dotfiles/.gitignore
+-'  1  14  ~/dotfiles/.git/COMMIT_EDITMSG
 -'  1  0  ~/dotfiles/.vim/colors/Dim.vim
 -'  160  17  /f/sys/www/nitroxy/classes/User.php
 -'  107  9  /f/sys/www/nitroxy/classes/User.php
@@ -138,272 +198,209 @@
 -'  6  0  /f/sys/www/nitroxy/content/main/checkin_confirm.php
 -'  73  5  /f/sys/www/nitroxy/content/main/checkin_confirm.php
 -'  528  9  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  526  4  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  316  47  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  194  20  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  311  2  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  8  3  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  5  0  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  538  6  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  532  7  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  315  0  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  174  0  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  1  0  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  625  25  /f/sys/www/nitroxy/classes/User.php
--'  633  17  /f/sys/www/nitroxy/classes/User.php
--'  630  0  /f/sys/www/nitroxy/classes/User.php
--'  631  0  /f/sys/www/nitroxy/classes/User.php
--'  622  26  /f/sys/www/nitroxy/classes/User.php
--'  532  28  /f/sys/www/nitroxy/classes/User.php
--'  382  21  /f/sys/www/nitroxy/classes/User.php
--'  679  38  /f/sys/www/nitroxy/classes/User.php
--'  378  17  /f/sys/www/nitroxy/classes/Ticket.php
--'  372  62  /f/sys/www/nitroxy/classes/Ticket.php
--'  366  12  /f/sys/www/nitroxy/classes/Ticket.php
--'  364  55  /f/sys/www/nitroxy/classes/Ticket.php
--'  359  1  /f/sys/www/nitroxy/classes/Ticket.php
--'  29  9  /f/sys/www/nitroxy/public/scripts/ajax_buyticket.php
--'  216  12  /f/sys/www/nitroxy/classes/UnresolvedTicket.php
--'  1  0  /f/sys/www/nitroxy/classes/UnresolvedTicket.php
--'  1  0  /f/sys/www/nitroxy/classes/Ticket.php
--'  33  8  /f/sys/www/nitroxy/content/main/ticket_activate.php
--'  1  0  /f/sys/www/nitroxy/content/main/ticket_activate.php
--'  68  23  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
--'  45  0  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
--'  32  45  /f/sys/www/nitroxy/content/sidebar.php
--'  17  105  /f/sys/www/nitroxy/content/sidebar.php
--'  49  12  /f/sys/www/nitroxy/content/sidebar.php
--'  21  5  /f/sys/www/nitroxy/content/sidebar.php
--'  28  9  /f/sys/www/nitroxy/content/sidebar.php
--'  101  10  /f/sys/www/nitroxy/content/sidebar.php
--'  44  14  /f/sys/www/nitroxy/content/sidebar.php
--'  1  22  /f/sys/www/nitroxy/.git/COMMIT_EDITMSG
--'  113  8  /f/sys/www/nitroxy/classes/Seat.php
--'  50  3  /f/sys/www/nitroxy/classes/Seat.php
--'  112  2  /f/sys/www/nitroxy/classes/Seat.php
--'  218  34  /f/sys/www/nitroxy/classes/Ticket.php
--'  215  3  /f/sys/www/nitroxy/classes/Ticket.php
--'  34  19  /f/sys/www/nitroxy/classes/TeamMember.php
--'  1  0  /f/sys/www/nitroxy/classes/Tournament.php
--'  5  0  /f/sys/www/nitroxy/content/main/tournament.php
--'  38  2  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
--'  1  0  /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
--'  58  31  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  21  33  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  85  29  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  82  11  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  23  10  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  94  2  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  16  32  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  6  0  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  73  5  /f/sys/www/nitroxy/content/main/checkin_confirm.php
--'  528  9  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  526  4  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  316  47  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  194  20  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  311  2  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  8  3  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  5  0  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  538  6  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  532  7  /f/sys/www/nitroxy/content/main/checkin_new.php
--'  315  0  /f/sys/www/nitroxy/content/main/checkin_new.php
 
 # Buffer list:
-%~/dotfiles/.vim/colors/Dim.vim	1	0
-%/f/sys/data/code/misc/gamedev-toolkit/renderer.cpp	125	12
+%~/.vimrc	23	15
+%/var/rails/mage/[Vundle] Installer	22	0
 
 # History of marks within files (newest to oldest):
 
-> ~/dotfiles/.vim/colors/Dim.vim
-	"	1	0
+> /var/rails/mage/[Vundle] Installer
+	"	22	0
+	.	1	0
+	+	43	0
+	+	22	0
+	+	1	0
 
-> /f/sys/data/code/misc/gamedev-toolkit/renderer.cpp
-	"	125	12
+> ~/.vimrc
+	"	23	15
+	^	23	16
+	.	23	15
+	+	36	1
+	+	27	0
+	+	24	0
+	+	20	23
+	+	21	22
+	+	22	24
+	+	22	0
+	+	23	27
+	+	30	17
+	+	30	22
+	+	94	0
+	+	95	0
+	+	96	0
+	+	96	0
+	+	21	9
+	+	30	10
+	+	23	15
 
-> /f/sys/www/nitroxy/classes/User.php
-	"	160	17
-
-> /f/sys/www/nitroxy/inc_settings.php
-	"	44	0
-	^	11	33
-	.	45	0
-	+	11	32
-	+	45	0
-
-> /f/sys/www/nitroxy/classes/Ticket.php
-	"	218	34
-	^	218	35
-	.	218	34
-	+	68	0
-	+	68	0
-	+	67	0
-	+	66	0
-	+	65	2
-	+	65	8
-	+	64	15
-	+	65	82
-	+	65	0
-	+	336	0
-	+	335	0
-	+	334	4
-	+	332	2
-	+	334	17
-	+	336	0
-	+	334	0
-	+	338	0
-	+	337	36
-	+	338	0
-	+	338	0
-	+	356	0
-	+	355	6
-	+	390	0
-	+	51	21
-	+	77	0
-	+	77	0
-	+	77	20
-	+	77	3
-	+	77	0
-	+	271	0
-	+	266	11
-	+	266	30
-	+	268	0
-	+	266	32
-	+	267	0
-	+	268	14
-	+	266	38
-	+	267	20
-	+	268	20
-	+	270	14
-	+	89	17
-	+	215	2
-	+	219	0
-	+	218	34
-
-> /f/sys/www/nitroxy/content/main/ticket_sell_confirm.php
-	"	38	2
-	.	14	0
-	+	14	0
-
-> /f/sys/www/nitroxy/classes/BasicObject.php
-	"	447	2
-	.	447	0
-	+	523	65
-	+	525	0
-	+	525	0
-	+	523	65
-	+	524	0
-	+	1103	0
-	+	524	62
-	+	447	17
-	+	447	0
-	a	525	3
-
-> /f/sys/www/nitroxy/GoToFile
-	"	1	0
-	.	47	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	196	0
-	+	1	0
-	+	164	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	101	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	71	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	68	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	64	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
+> /var/rails/mage/spec/mage/reports/account_report_spec.rb
+	"	88	6
+	^	68	54
+	.	88	0
+	+	12	34
+	+	12	34
+	+	12	34
+	+	10	0
+	+	7	14
+	+	4	50
+	+	7	14
+	+	8	28
+	+	9	21
+	+	12	34
+	+	9	36
+	+	12	0
+	+	11	0
+	+	12	34
+	+	12	32
+	+	16	0
+	+	15	0
+	+	14	40
+	+	15	40
+	+	65	5
+	+	93	2
+	+	48	24
+	+	48	29
+	+	35	25
+	+	48	18
+	+	36	0
 	+	47	0
+	+	44	23
+	+	38	23
+	+	48	5
+	+	48	30
+	+	48	4
+	+	48	29
+	+	48	13
+	+	48	20
+	+	48	63
+	+	48	59
+	+	48	69
+	+	48	24
+	+	48	45
+	+	55	0
+	+	48	0
+	+	55	14
+	+	54	24
+	+	55	20
+	+	54	25
+	+	55	49
+	+	56	57
+	+	57	32
+	+	18	48
+	+	25	0
+	+	18	6
+	+	22	27
+	+	19	0
+	+	20	0
+	+	22	60
+	+	24	49
+	+	22	33
+	+	32	0
+	+	32	31
+	+	27	29
+	+	32	0
+	+	28	7
+	+	28	0
+	+	32	5
+	+	30	63
+	+	32	0
+	+	31	49
+	+	92	0
+	+	21	30
+	+	22	85
+	+	30	31
+	+	93	0
+	+	69	56
+	+	73	0
+	+	69	6
+	+	70	40
+	+	72	48
+	+	69	38
+	+	75	0
+	+	74	0
+	+	75	58
+	+	78	40
+	+	80	0
+	+	81	58
+	+	82	49
+	+	84	43
+	+	91	0
+	+	88	5
+	+	88	75
+	+	90	53
+	+	64	0
+	+	62	40
+	+	63	61
+	+	49	52
+	+	68	53
+	+	70	0
+	+	76	0
+	+	82	0
+	+	88	0
 
-> /f/sys/www/nitroxy/content/main/tournament.php
-	"	5	0
+> /var/rails/mage/app/mage/reports/account_report.rb
+	"	12	0
+	^	10	50
+	.	10	49
+	+	26	0
+	+	19	0
+	+	13	47
+	+	13	0
+	+	13	0
+	+	12	0
+	+	11	0
+	+	9	35
+	+	6	0
+	+	4	40
+	+	14	43
+	+	18	13
+	+	17	9
+	+	16	42
+	+	23	0
+	+	22	53
+	+	21	0
+	+	22	1
+	+	23	2
+	+	16	3
+	+	21	0
+	+	23	2
+	+	14	0
+	+	4	43
+	+	14	17
+	+	22	86
+	+	22	31
+	+	22	30
+	+	22	69
+	+	23	0
+	+	22	81
+	+	4	62
+	+	5	17
+	+	10	49
 
-> /f/sys/www/nitroxy/classes/Tournament.php
+> /var/rails/mage/spec/mage/reports/account_report_spec.r
 	"	1	0
+
+> /var/rails/mage/app/mage/report.rb
+	"	2	0
+
+> /var/rails/mage/config/application.rb
+	"	1	0
+	.	16	0
+	+	51	0
+	+	16	0
+	+	16	0
+
+> /var/rails/mage/app/models/report.rb
+	"	1	0
+	.	3	0
+	+	3	0
+	+	3	6
+	+	2	0
+	+	3	0
+
+> /var/rails/mage/app/models/series.rb
+	"	9	3
+
+> /var/rails/mage/db/schema.rb
+	"	2	0
