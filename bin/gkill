@@ -64,9 +64,9 @@ echo -n "Select a process to send SIG$SIGNAL to (0-$i): "
 read n
 pid=$((pids[n]))
 if [ "$pid" != "0" ]; then
-	kill -9 $pid
+	kill -$SIGNAL $pid
 	if [ "$?" == "0" ]; then
-		echo "Process $pid killed"
+		echo "Sent $SIGNAL to $pid"
 	fi
 else
 	echo "No process killed"
