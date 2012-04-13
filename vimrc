@@ -17,19 +17,23 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-rails'
+Bundle 'taq/vim-rspec'
+Bundle 'tpope/vim-endwise'
+Bundle 'pangloss/vim-javascript'
+Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-vividchalk'
 Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-pastie'
+Bundle 'sickill/vim-pasta'
 Bundle 'vim-scripts/ScrollColors'
 Bundle 'scrooloose/nerdcommenter'
 
 " Vim-scripts 
 Bundle 'glsl.vim'
-Bundle 'ShowMarks7'
+" Bundle 'ShowMarks7'
 
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
@@ -85,6 +89,8 @@ set smarttab
 au BufNewFile,BufRead *.glsl,*.vert,*.frag,*.geom set syntax=glsl
 au BufRead,BufNewFile *.rb,*.rhtml,*.haml set shiftwidth=2 softtabstop=2 expandtab
 au BufRead,BufNewFile *.py set softtabstop=4 shiftwidth=4 expandtab 
+au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
+au BufRead,BufNewFile {*.json} set ft=javascript
 
 " Bindings
 "
