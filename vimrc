@@ -30,10 +30,10 @@ Bundle 'tpope/vim-pastie'
 Bundle 'sickill/vim-pasta'
 Bundle 'vim-scripts/ScrollColors'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'vim-ruby/vim-ruby'
 
 " Vim-scripts 
 Bundle 'glsl.vim'
-" Bundle 'ShowMarks7'
 
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
@@ -62,7 +62,7 @@ set viminfo='10,\"100,:20,%,n~/.vim/viminfo
 syntax on
 
 set nostartofline " Keep cursor in the same column if possible.
-set whichwrap=b,s,[,],<,>,h,l " Allow cursor to wrap between lines.
+"set whichwrap=b,s,[,],<,>,h,l " Allow cursor to wrap between lines.
 set lazyredraw " Don't redraw screen while executing macros/mappings.
 set scrolloff=1 " Minimal number of screen lines to keep above and below the cursor.
 set incsearch " Enable incremental search.
@@ -82,9 +82,10 @@ set cursorcolumn " Shows what column the cursor is on
 set incsearch
 "set mouse=n " Allow the mouse in normal mode and visual mode.
 " set showmatch
-set autoindent
-
 set smarttab
+set autoindent
+set smartindent
+
 
 au BufNewFile,BufRead *.glsl,*.vert,*.frag,*.geom set syntax=glsl
 au BufRead,BufNewFile *.rb,*.rhtml,*.haml set shiftwidth=2 softtabstop=2 expandtab
@@ -96,8 +97,8 @@ au BufRead,BufNewFile {*.json} set ft=javascript
 "
 "
 " Don't remove visual block when indenting.
-vmap < <gv
-vmap > >gv
+"vmap < <gv
+"vmap > >gv
 
 set pastetoggle=<F2>
 
