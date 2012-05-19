@@ -91,3 +91,6 @@ User taran
 Host refurn
 Hostname 109.74.0.68
 User root
+
+Host carbon
+Hostname 192.168.1.13
