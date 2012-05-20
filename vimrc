@@ -30,7 +30,7 @@ Bundle 'tpope/vim-pastie'
 Bundle 'sickill/vim-pasta'
 Bundle 'vim-scripts/ScrollColors'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'vim-ruby/vim-ruby'
+" Bundle 'vim-ruby/vim-ruby'
 
 " Vim-scripts 
 Bundle 'glsl.vim'
@@ -85,13 +85,15 @@ set incsearch
 set smarttab
 set autoindent
 set smartindent
+set expandtab
 
+"au!
 
-au BufNewFile,BufRead *.glsl,*.vert,*.frag,*.geom set syntax=glsl
-au BufRead,BufNewFile *.rb,*.rhtml,*.haml set shiftwidth=2 softtabstop=2 expandtab
-au BufRead,BufNewFile *.py set softtabstop=4 shiftwidth=4 expandtab 
-au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
-au BufRead,BufNewFile {*.json} set ft=javascript
+"au BufNewFile,BufRead *.glsl,*.vert,*.frag,*.geom set syntax=glsl
+"au BufRead,BufNewFile *.rb,*.rhtml,*.haml, Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru set shiftwidth=2 softtabstop=2 syntax=ruby
+"au BufRead,BufNewFile *.py set softtabstop=4 shiftwidth=4 expandtab 
+"au BufRead,BufNewFile *.haml         setfiletype haml 
+"au BufRead,BufNewFile {*.json} set ft=javascript
 
 " Bindings
 "
