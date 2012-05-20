@@ -98,7 +98,7 @@ _hostname_color() {
       echo -n $MAGENTA
       ;;
     (dopefish)
-      echo -n $BLUE
+      echo -n $CYAN
       ;;
     (xenon)
       echo -n $GREEN
@@ -109,6 +109,9 @@ _hostname_color() {
     (plutonium)
       echo -n $YELLOW
 		;;
+	(geonosis)
+	  echo -n $BLUE
+	  ;;
     (ostkaka)
       echo -n $YELLOW
 		;;
@@ -158,3 +161,5 @@ compinit
 if [[ -f ~/.zshrc.local ]]; then
 	source ~/.zshrc.local
 fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
