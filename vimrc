@@ -34,6 +34,7 @@ Bundle 'scrooloose/nerdcommenter'
 
 " Vim-scripts 
 Bundle 'glsl.vim'
+Bundle 'opencl.vim--Wierzowiecki'
 
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
@@ -59,8 +60,6 @@ filetype plugin indent on     " required!
 " n... : where to save the viminfo files
 set viminfo='10,\"100,:20,%,n~/.vim/viminfo
 
-syntax on
-
 set nostartofline " Keep cursor in the same column if possible.
 "set whichwrap=b,s,[,],<,>,h,l " Allow cursor to wrap between lines.
 set lazyredraw " Don't redraw screen while executing macros/mappings.
@@ -85,15 +84,15 @@ set incsearch
 set smarttab
 set autoindent
 set smartindent
-set expandtab
 
 au!
 
 colorscheme linduxed
 
 au BufNewFile,BufRead *.glsl,*.vert,*.frag,*.geom set syntax=glsl
+au BufNewFile,BufRead *.cl set syntax=opencl
 au BufRead,BufNewFile *.rb,*.rhtml,*.haml, Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru set shiftwidth=2 softtabstop=2 syntax=ruby
-au BufRead,BufNewFile *.py set softtabstop=4 shiftwidth=4 expandtab 
+au BufRead,BufNewFile *.py set softtabstop=4 shiftwidth=4 
 au BufRead,BufNewFile *.haml         setfiletype haml 
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
 au BufRead,BufNewFile {*.json} set ft=javascript
@@ -115,3 +114,4 @@ function! ChangePaste(type, ...)
     silent exe "normal! p"
 endfunction
 
+syntax on
