@@ -4,6 +4,10 @@ Host o
 HostName ostkaka.slafs.org
 Port 222
 
+Host k
+HostName kladdkaka.sanfred.se
+Port 222
+
 Host oxygen
 HostName oxygen.torandi.com
 Port 4722

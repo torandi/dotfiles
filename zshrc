@@ -94,7 +94,7 @@ _hostname_color() {
     (carbon)
       echo -n $GREY
       ;;
-    (jenny)
+    (kladdkaka)
       echo -n $MAGENTA
       ;;
     (dopefish)
