@@ -37,7 +37,7 @@ Bundle 'glsl.vim'
 Bundle 'opencl.vim--Wierzowiecki'
 
 " non github repos
-Bundle 'git://git.wincent.com/command-t.git'
+" Bundle 'git://git.wincent.com/command-t.git'
 " ...
 
 filetype plugin indent on     " required! 

@@ -103,6 +103,9 @@ _hostname_color() {
     (xenon)
       echo -n $GREEN
       ;;
+    (consultix)
+      echo -n $GREEN
+      ;;
     (sulfur)
       echo -n $YELLOW
 		;;
