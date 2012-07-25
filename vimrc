@@ -87,6 +87,11 @@ set smartindent
 
 au!
 
+function! MarkColumn()
+	set colorcolumn=+1
+	hi ColorColumn ctermbg=235
+endfunction
+
 colorscheme linduxed
 
 au BufNewFile,BufRead *.glsl,*.vert,*.frag,*.geom set syntax=glsl
@@ -96,7 +101,10 @@ au BufRead,BufNewFile *.py set softtabstop=4 shiftwidth=4
 au BufRead,BufNewFile *.haml         setfiletype haml 
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
 au BufRead,BufNewFile {*.json} set ft=javascript
-au BufRead,BufNewFile *.c,*.cpp set cindent
+au BufRead,BufNewFile *.c,*.cpp,*.h,*.hpp set cindent
+
+au BufRead,BufNewFile *.c,*.h set textwidth=80
+au BufRead,BufNewFile *.c,*.h call MarkColumn()
 
 " Bindings
 "
