@@ -1,0 +1,30 @@
+--- /usr/share/X11/xkb/symbols/us	2012-01-23 23:42:36.000000000 +0100
++++ us_mod_dvorak_intl	2012-07-16 11:10:59.427256392 +0200
+@@ -343,12 +343,16 @@
+     include "us(dvorak)"
+ 
+     key <AE04> { [         4,  dollar,    EuroSign ] };
++    key <AE10> { [	    0,	parenright, oslash,     Ooblique ]	};
+ 
+-    key <AD02> { [     comma,    less,  adiaeresis,       dead_caron ] };
+-    key <AD03> { [    period, greater, ecircumflex,   periodcentered	] };
++    key <AD01> { [  apostrophe,	quotedbl, aring, Aring ] }; 
++    key <AD02> { [     comma,    less,  adiaeresis, Adiaeresis       ] }; 
++    key <AD03> { [    period, greater, 	 odiaeresis,  Odiaeresis ] };
+     key <AD04> { [         p,       P,  ediaeresis,     dead_cedilla ] };
+     key <AD05> { [         y,       Y,  udiaeresis ] };
+     key <AD08> { [         c,       C,    ccedilla,    dead_abovedot ] };
++    key <AD09> { [	    r,	R, dead_acute, dead_diaeresis			]	};
++    key <AD10> { [	    l,	L, ecircumflex,   periodcentered   ]	};
+ 
+     key <AC01> { [         a,       A,      agrave ] };
+     key <AC02> { [         o,       O, ocircumflex ] };
+@@ -358,7 +362,7 @@
+     key <AC10> { [         s,       S,      ssharp ] };
+ 
+     key <AB01> { [ semicolon,   colon, acircumflex ] };
+-    key <AB02> { [         q,       Q,  odiaeresis,      dead_ogonek ] };
++    key <AB02> { [         q,       Q ] };
+     key <AB03> { [         j,       J,      egrave, dead_doubleacute ] };
+     key <AB04> { [         k,       K,      ugrave ] };
+     key <AB05> { [         x,       X,  idiaeresis ] };
