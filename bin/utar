@@ -1,0 +1,534 @@
+#!/bin/bash
+# file name 'utar.sh'
+# coded by: Louis Casillas, e-mail: oxaric@gmail.com
+# version 1.1
+# How to use:
+# In a linux shell or cygwin:
+# ~/directory-containing-this-script$ sudo chmod +x utar.sh
+# ~/directory-containing-this-script$ ./utar.sh
+
+# This script will protect against tarbombs and allow you
+# to choose the path to extract the tar file into.
+# To know more type: ./utar.sh
+
+TRUE=0
+FALSE=1
+ERROR=2
+
+OFF=0
+ON=1
+
+NO=0
+YES=1
+
+SUCCEEDED=0
+FAILED=1
+
+file_name=""
+optional_extraction_path=""
+help_option=$OFF
+force_option=$OFF
+keep_root_option=$OFF
+
+num_of_dirs_passed=0
+is_a_tar_bomb=$NO
+
+# the initial temporary directory name
+temp_dir="this-is-my-directory-to-untar-in"
+
+function display_help_and_exit
+{
+   echo
+   echo "Usage: utar [[FILE]] [EXTRACT_PATH/] [-k] [-f]"
+   echo
+   echo "utar extracts a tar file while preventing tarbombs to explode"
+   echo "and allows the user to specify the tar extraction path"
+   echo
+   echo "     [EXTRACT_PATH/]            extract files in this path"
+   echo "                                which replaces the original root directories"
+   echo
+   echo "     -k --keep-root-dir         appends the [EXTRACT_PATH/] to the start of"
+   echo "                                the tar file's root directories"
+   echo "                                implies [EXTRACT_PATH/] is given"
+   echo
+   echo "     -f --force                 force extraction"
+   echo "                                needed to force the extraction of a tarbomb"
+   echo
+   echo "     -h --help                  display this help list"
+   echo
+   echo "Examples:"
+   echo "     utar archive.tar           # extracts all files from archive.tar"
+   echo "     utar archive.tar foo/      # extracts the files into directory foo"
+   echo "     utar -f archive.tar        # forces an extraction even if"
+   echo "                                # archive.tar is a tarbomb"
+   echo
+
+   exit $SUCCEEDED
+}
+
+# receives the exit code of the last system command called
+# if the command had an error then display an error message
+# and exit
+function system_command_error_exit
+{
+    echo
+    echo "utar: An error occurred while trying to use a system command."
+    echo "utar: See the error message above."
+    echo "utar: Exiting..."
+    echo
+
+    exit $FAILED
+}
+
+function did_the_system_command_work
+{
+   # $1 gives us the return result of the system command
+   if [ $1 -ne $SUCCEEDED ]; then
+
+      delete_the_temp_directory
+      system_command_error_exit
+   fi
+}
+
+function has_ending_forward_slash
+{
+   # grab the last character of the string and test if it is a forward slash
+   if [[ "$(echo "$1" | tail --bytes=2 )" = "/" ]]; then
+      return $TRUE
+   else
+      return $FALSE
+   fi
+}
+
+function contains_a_forward_slash
+{
+   # test if the string has a forward slash
+   # if true then this string is a directory
+   if [[ "$(echo "$1" | grep "/" )" != "" ]]; then
+      return $TRUE
+   else
+      return $FALSE
+   fi
+}
+
+# determines if the string is a proper option
+function is_an_option
+{
+   # must contain at least one hyphen at the beginning of the string 
+   # to be considered an option
+   if [[ $(echo "$1" | head --bytes=1 | grep "\-" ) = ""  ]]; then
+      return $FALSE
+   else
+      return $TRUE
+   fi
+}
+
+function evaluate_parameter
+{
+   if is_an_option "$1"; then
+      # evaluate which option was used and set the necessary variables
+      # if it is an improper option then exit
+      case "$1" in
+
+         "--help")
+            help_option=$ON
+         ;;
+         "-h")
+            help_option=$ON
+         ;;
+         "--force")
+            force_option=$ON
+         ;;
+         "-f")
+            force_option=$ON
+         ;;
+
+         "--keep-root-dir")
+            keep_root_option=$ON
+         ;;
+         "-k")
+            keep_root_option=$ON
+         ;;
+         *)
+            echo "utar: invalid option: $1"
+            echo "Try 'utar --help' for more information."
+            echo
+
+            exit $FAILED
+         ;;
+      esac # end of the case statement
+   else
+      num_of_dirs_passed=$(( $num_of_dirs_passed + 1 ))
+
+      # determine if the passed parameter is a directory path
+      # if it is then use it for the optional directory
+      # however if it is a name and no file name is specified
+      # then use this as the file name, otherwise it is
+      # used as the optional directory
+      if contains_a_forward_slash "$1"; then
+
+         optional_extraction_path="$1"
+         if ! has_ending_forward_slash "$1"; then
+            optional_extraction_path+="/"
+         fi
+      else
+         if [[ "$file_name" = "" ]]; then
+
+            file_name="$1"
+         else
+            # test to see if one of the parameters has ".tar" in the name
+            # if it does then switch the current file name with the
+            # optional extraction path to allow the tar file parameter
+            # to come after the extraction path
+            if [[ $(echo "$1" | grep ".tar" ) = ""  ]]; then
+
+               optional_extraction_path="$1""/"
+            else
+                  temp=$file_name
+                  file_name="$1"
+                  optional_extraction_path="$temp""/"
+            fi
+         fi
+      fi
+
+      # too many files or dirs passed
+      if [ $num_of_dirs_passed -eq 3 ]; then
+         echo "utar: an extra file or directory was passed: $1"
+         echo "utar only extracts one tar to one directory at a time"
+         echo "Try 'utar --help' for more information."
+         echo
+
+         exit $FAILED
+      fi
+   fi
+}
+
+# sorts out the 6 parameters passed and makes sure they are proper
+function deal_with_the_parameters
+{      
+   if [[ "$1" != "" ]]; then
+      evaluate_parameter "$1"
+   else
+      # exit if no parameters were passed
+      echo "utar: You must specify a tar file"
+      echo "Try 'utar --help' for more information."
+      echo
+
+      exit $FAILED
+   fi
+
+   if [[ "$2" != "" ]]; then
+      evaluate_parameter "$2"
+   fi
+
+   if [[ "$3" != "" ]]; then
+      evaluate_parameter "$3"
+   fi
+
+   if [[ "$4" != "" ]]; then
+      evaluate_parameter "$4"
+   fi
+
+   if [[ "$5" != "" ]]; then
+      evaluate_parameter "$5"
+   fi
+
+   # test if there are more options than is possible
+   if [[ "$6" != "" ]]; then
+
+      echo "utar: invalid command: $6"
+      echo "Try 'utar --help' for more information."
+      echo
+
+      exit $FAILED
+   fi
+
+   if [ $help_option -eq $ON ]; then
+      display_help_and_exit
+   fi
+
+###
+# uncomment these lines if you want the extraction of a tarbomb
+# to be automatically forced if an extraction path is specified
+# except when the path is the current directory
+#
+#   if [[ "$optional_extraction_path" != "" ]]; then
+#      if [[ "$optional_extraction_path" != "." ]]; then
+#         if [[ "$optional_extraction_path" != "./" ]]; then
+#            force_option="$ON"
+#         fi
+#      fi
+#   fi
+###
+}
+
+function create_the_temp_directory
+{
+   # if in some rare chance the temporary directory already exists
+   # then append a random number to the end of the directory and 
+   # test again.  
+   # repeats until a non-existant directory is found.
+   while [ -d "$temp_dir" ]
+   do
+
+      # grab a random number between 0 and 9
+      temp_num=$(( $RANDOM % 10 ))
+
+      temp_dir+="$temp_num"
+   done
+
+   temp_dir+="/"
+
+   # make the temporary directory
+   mkdir "$temp_dir"
+
+   did_the_system_command_work $?
+}
+
+function delete_the_temp_directory
+{
+   # remove the temp directory
+   rm -rf "$temp_dir"
+
+   # $? gives us the return result of the system command
+   if [ $? -ne $SUCCEEDED ]; then
+      system_command_error_exit
+   fi
+}
+
+function remove_dirs_from_the_temp_directory
+{
+   # grab a list of the files and directories in the temp directory
+   temp="$(ls $temp_dir -A --file-type)"
+   did_the_system_command_work $?
+
+   # test if there any directories in the temp directory
+   temp="$(echo "$temp" | grep /)"
+
+   # if there are directories in the mpt directory then
+   # delete them
+   if [[ "$temp" != "" ]]; then
+
+      # output list of dirs to file temp.txt
+      echo "$temp" > "$temp_dir""temp.txt"
+      did_the_system_command_work $?
+
+      exec<"$temp_dir""temp.txt"
+
+      # delete all  directories inside the temp directory
+      # if any files are left in the temp directory this 
+      # signifies the files would have normally been extracted 
+      # into the current directory which means the tar file is a 'tarbomb'
+      while read line
+      do
+         rm -rf "$temp_dir""$line"
+         did_the_system_command_work $?
+      done
+
+      # this does not exactly need to be removed at this point because
+      # later on the whole temp directory should be removed however
+      # I left it in just in case there is some kind of error before
+      # the temp directory is deleted.  Gotta hide the details! :)
+      rm "$temp_dir""temp.txt"
+      did_the_system_command_work $?
+   fi
+}
+
+function test_for_being_a_tar_bomb
+{
+   create_the_temp_directory
+   # extract the tar to temporary directory
+   tar -xf "$file_name" -C "$temp_dir"
+   did_the_system_command_work $?
+
+   remove_dirs_from_the_temp_directory
+
+   temp="$(ls $temp_dir)"
+   did_the_system_command_work $?
+
+   # test for any leftover files in the temp directory
+   # if there are leftover files this tells us the tar
+   # is a tarbomb
+   if [[ "$temp" != "" ]]; then
+
+      echo "Warning!  A tarbomb was detected!"
+
+      is_a_tar_bomb=$YES
+
+      # remove all leftover files in the temp directory
+      rm -rf "$temp_dir"*
+      did_the_system_command_work $?
+
+      if [ $force_option -eq $ON ]; then
+         echo "Forcing the extraction..."
+         echo
+      else
+         delete_the_temp_directory
+         echo "Exiting..."
+         echo
+
+         exit $FAILED
+      fi
+   fi
+}
+
+# check if the tar file exists
+# if it does not exit
+function check_for_tar_file
+{
+   if [ -f "$file_name" ]; then
+      return
+   else
+      echo "utar: The specified file '$file_name' does not exist..."
+      echo
+
+      exit $FAILED
+   fi
+}
+
+function create_specified_extract_path_if_needed
+{
+   # check to see if an optional extract path was given
+   if [[ "$optional_extraction_path" != "" ]]; then
+
+      # if the specified extract path does not exist then create it
+      if [ ! -d "$optional_extraction_path" ]; then
+
+         mkdir -p "$optional_extraction_path"
+         did_the_system_command_work $?
+      fi
+   fi
+}
+
+function try_normal_extraction
+{
+   # test if no optional extract path was given
+   # if none is given then perform a normal extraction
+   if [[ "$optional_extraction_path" = "" ]]; then
+
+      tar -xf "$file_name"
+      did_the_system_command_work $?
+   
+      delete_the_temp_directory
+
+      exit $SUCCEEDED
+   fi
+}
+
+function try_maintaining_the_root_directory_extraction
+{
+   # if the -k or --keep-root-dir option was passed perform a normal
+   # extraction into the specified directory
+   if [ $keep_root_option -eq $ON ]; then
+
+      tar -xf "$file_name" -C "$optional_extraction_path"
+      did_the_system_command_work $?
+      
+      delete_the_temp_directory
+
+      exit $SUCCEEDED
+   fi
+}
+
+function extract_the_tar_bomb
+{
+   # extract the tar to the specified directory while
+   # stripping the root directory
+   tar -xf "$file_name" -C "$optional_extraction_path" --strip-components=1
+   did_the_system_command_work $?
+
+   # now take care of any files from a tarbomb
+   # extract the tar to temporary directory
+   tar -xf "$file_name" -C "$temp_dir"
+   did_the_system_command_work $?
+
+   # grab a list of the files and directories in the temp directory
+   temp="$(ls $temp_dir -A --file-type)"
+   did_the_system_command_work $?
+  
+   remove_dirs_from_the_temp_directory
+
+   # output list of left over files to file temp.txt
+   ls_results=$(ls "$temp_dir")
+   did_the_system_command_work $?
+
+   echo "$ls_results" > "$temp_dir""temp.txt"
+   did_the_system_command_work $?
+
+   exec<"$temp_dir""temp.txt"
+
+   # go through the list of leftover files and
+   # before moving them make sure they do not
+   # have the same file name as any files in the
+   # specified directory.  if they do then append
+   # a hyphen and a number i.e. duplicate-file-1
+   # increase the number until an untaken file name is found
+   while read line
+   do
+      i=1
+
+      # test to see if the file exists
+      if [ -f "$optional_extraction_path""$line" ]; then
+
+         while [ -f "$optional_extraction_path""$line""-""$i" ]
+         do
+            i=$(( $i + 1 ))
+         done
+
+         echo "Found a duplicate file: ""'$line':"" renaming it to ""'$line""-""$i'"
+
+         # move the files back to the specified directory
+         mv "$temp_dir""$line" "$optional_extraction_path""$line""-""$i"
+         did_the_system_command_work $?
+      else
+
+         # move the files back to the specified directory
+         mv "$temp_dir""$line" "$optional_extraction_path"
+         did_the_system_command_work $?
+      fi
+   done
+
+   delete_the_temp_directory
+
+   exit $SUCCEEDED
+}
+
+function extract_to_the_specified_path
+{
+   tar -xf "$file_name" -C "$optional_extraction_path" --strip-components=1
+   did_the_system_command_work $?
+
+   delete_the_temp_directory
+
+   exit $SUCCEEDED
+}
+
+### HERE STARTS THE CODE EXECUTION
+deal_with_the_parameters "$1" "$2" "$3" "$4" "$5" "$6"
+
+# makes sure the specified tar file exists
+check_for_tar_file
+
+# tests the tar for being a tarbomb
+# creates a temporary directory
+test_for_being_a_tar_bomb
+
+# runs and exits if no specified extract path was given
+try_normal_extraction
+
+# if the extract path does not exist then create it
+create_specified_extract_path_if_needed
+
+# runs and exits if a specified extract path was given
+# and the -k or --keep-root-dir option was passed
+try_maintaining_the_root_directory_extraction
+
+if [ $is_a_tar_bomb -eq $YES ]; then
+
+   # runs and exits after extracting the tarbomb to the path given   
+   extract_the_tar_bomb
+else
+
+   # runs and exits after extracting to the path given
+   extract_to_the_specified_path
+fi
