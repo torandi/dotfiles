@@ -98,3 +98,22 @@ User root
 
 Host carbon
 Hostname 192.168.1.13
+
+Host westeros
+Hostname westeros.nu
+User root
+
+Host hardhome
+Hostname 194.14.0.101
+Port 4722
+User root
+
+Host nightfort
+Hostname nightfort.westeros.nu
+Port 4722
+User root
+
+Host dragonstone
+Hostname dragonstone.westeros.nu
+User root
+Port 4722

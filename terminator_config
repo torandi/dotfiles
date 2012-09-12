@@ -14,7 +14,7 @@
     foreground_color = "#ffffff"
     use_custom_command = True
     custom_command = zsh
-    font = Monospace 10
+    font = Monospace 8
     scrollback_infinite = True
 [layouts]
   [[default]]

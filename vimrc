@@ -91,12 +91,13 @@ colorscheme linduxed
 
 au BufNewFile,BufRead *.glsl,*.vert,*.frag,*.geom set syntax=glsl
 au BufNewFile,BufRead *.cl set syntax=opencl
-au BufRead,BufNewFile *.rb,*.rhtml,*.haml, Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru set shiftwidth=2 softtabstop=2 syntax=ruby
+au BufRead,BufNewFile *.rb,*.rhtml,*.haml,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru set shiftwidth=2 softtabstop=2 syntax=ruby
 au BufRead,BufNewFile *.py set softtabstop=4 shiftwidth=4 
 au BufRead,BufNewFile *.haml         setfiletype haml 
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
 au BufRead,BufNewFile {*.json} set ft=javascript
 au BufRead,BufNewFile *.c,*.cpp set cindent
+au BufRead,BufNewFile *.php set ft=phtml
 
 " Bindings
 "

@@ -19,5 +19,7 @@
 
 [core]
 	excludesfile = ~/.gitignore
+	autocrlf = input
 
-
+[config]
+	autocrlf = input
