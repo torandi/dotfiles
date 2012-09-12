@@ -73,9 +73,9 @@ set ignorecase " Ignore case.
 set smartcase " Ignore case when the pattern contains lowercase letters only.
 set showtabline=1 " Show tab page labels if there is more than one tab.
 set number " Display line numbers.
-set shiftwidth=3 " Spaces for each step of (auto)indent
-set tabstop=3 " Spaces that a <Tab> in the file counts for
-set softtabstop=3 " Spaces that a <Tab> counts for when editing
+set shiftwidth=2 " Spaces for each step of (auto)indent
+set tabstop=2 " Spaces that a <Tab> in the file counts for
+set softtabstop=2 " Spaces that a <Tab> counts for when editing
 set cursorline " Shows what line the cursor is on
 set cursorcolumn " Shows what column the cursor is on
 set incsearch
@@ -87,6 +87,11 @@ set smartindent
 
 au!
 
+function! MarkColumn()
+	set colorcolumn=+1
+	hi ColorColumn ctermbg=235
+endfunction
+
 colorscheme linduxed
 
 au BufNewFile,BufRead *.glsl,*.vert,*.frag,*.geom set syntax=glsl
@@ -96,8 +101,14 @@ au BufRead,BufNewFile *.py set softtabstop=4 shiftwidth=4
 au BufRead,BufNewFile *.haml         setfiletype haml 
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
 au BufRead,BufNewFile {*.json} set ft=javascript
-au BufRead,BufNewFile *.c,*.cpp set cindent
+au BufRead,BufNewFile *.c,*.cpp,*.h,*.hpp set cindent
 au BufRead,BufNewFile *.php set ft=phtml
+
+" Function for helping with gnu c coding standard
+function! GnuC()
+	set textwidth=80
+	call MarkColumn()
+endfunction
 
 " Bindings
 "

@@ -1,12 +1,9 @@
 ForwardAgent yes
 
-Host o
-HostName ostkaka.slafs.org
-Port 222
-
 Host k
 HostName kladdkaka.sanfred.se
 Port 222
+User torandi
 
 Host oxygen
 HostName oxygen.torandi.com
@@ -30,6 +27,7 @@ User taran
 Host g
 Hostname gaffa.nitroxy.com
 Port 222
+User torandi
 
 Host pommes
 Hostname pommes.slafs.org
