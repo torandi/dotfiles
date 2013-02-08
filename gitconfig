@@ -5,6 +5,7 @@
 	branch = auto
 	status = auto
 	diff = auto
+	ui = true
 
 [alias]
 	tree = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
@@ -12,7 +13,7 @@
 	co = checkout
 	br = branch
 	ci = commit
-	st = status
+	st = status -s
 	last = log -1 HEAD
 	recent = log -10 --oneline --graph
 	visual = !gitk
