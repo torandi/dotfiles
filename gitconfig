@@ -16,6 +16,7 @@
 	last = log -1 HEAD
 	recent = log -10 --oneline --graph
 	visual = !gitk
+	list = log --pretty=oneline
 
 [core]
 	excludesfile = ~/.gitignore

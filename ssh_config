@@ -94,8 +94,9 @@ Host refurn
 Hostname 109.74.0.68
 User root
 
-Host carbon
-Hostname 192.168.1.13
+Host courscant
+Hostname home.torandi.com
+Port 6022
 
 Host westeros
 Hostname westeros.nu
