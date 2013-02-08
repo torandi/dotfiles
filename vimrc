@@ -79,7 +79,7 @@ set softtabstop=2 " Spaces that a <Tab> counts for when editing
 set cursorline " Shows what line the cursor is on
 set cursorcolumn " Shows what column the cursor is on
 set incsearch
-"set mouse=n " Allow the mouse in normal mode and visual mode.
+set mouse=a " Allow the mouse in normal mode and visual mode.
 " set showmatch
 set smarttab
 set autoindent
@@ -103,6 +103,7 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=r
 au BufRead,BufNewFile {*.json} set ft=javascript
 au BufRead,BufNewFile *.c,*.cpp,*.h,*.hpp set cindent
 au BufRead,BufNewFile *.php set ft=phtml
+au BufRead,BufNewFile *.yaml,*.yml set expandtab
 
 " Function for helping with gnu c coding standard
 function! GnuC()

@@ -2,8 +2,12 @@
   title_transmit_bg_color = "#310039"
   focus = mouse
 [keybindings]
+  go_up = <Control>Up
   next_tab = <Control>Tab
   prev_tab = <Shift><Control>Tab
+  go_down = <Control>Down
+  go_right = <Control>Right
+  go_left = <Control>Left
 [profiles]
   [[default]]
     scrollbar_position = hidden

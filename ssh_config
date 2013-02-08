@@ -89,6 +89,7 @@ User taran
 Host cf.bj
 Hostname clusterfluff.ben-and-jerrys.stacken.kth.se
 User taran
+ForwardAgent yes
 
 Host refurn
 Hostname 109.74.0.68
@@ -116,3 +117,8 @@ Host dragonstone
 Hostname dragonstone.westeros.nu
 User root
 Port 4722
+
+Host julbord
+Hostname hemma.petterblomberg.se
+Port 222
+User torandi
