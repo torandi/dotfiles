@@ -126,3 +126,10 @@ User torandi
 Host meze
 Hostname meze.slafs.org
 User nitroxy
+
+Host dagobah
+Hostname dagobah.torandi.com
+Port 222
+
+Host hoth
+User root
