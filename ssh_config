@@ -122,3 +122,7 @@ Host julbord
 Hostname hemma.petterblomberg.se
 Port 222
 User torandi
+
+Host meze
+Hostname meze.slafs.org
+User nitroxy
