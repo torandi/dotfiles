@@ -25,3 +25,5 @@
 
 [config]
 	autocrlf = input
+[branch]
+	autosetuprebase = always
