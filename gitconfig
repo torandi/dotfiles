@@ -25,6 +25,7 @@
 
 [config]
 	autocrlf = input
+
 [push]
 	default = simple
 
