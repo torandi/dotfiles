@@ -119,7 +119,7 @@ _hostname_color() {
       echo -n $YELLOW
 		;;
 		(coruscant)
-			echo -n $CYAN
+			echo -n $GREY
 		;;
 		(dagobah)
 			echo -n $YELLOW
