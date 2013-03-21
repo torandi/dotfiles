@@ -1,10 +1,5 @@
 ForwardAgent yes
 
-Host k
-HostName kladdkaka.sanfred.se
-Port 222
-User torandi
-
 Host oxygen
 HostName oxygen.torandi.com
 Port 4722
