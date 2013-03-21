@@ -30,6 +30,7 @@ Bundle 'tpope/vim-pastie'
 Bundle 'sickill/vim-pasta'
 Bundle 'vim-scripts/ScrollColors'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
 " Bundle 'vim-ruby/vim-ruby'
 
 " Vim-scripts 
@@ -79,7 +80,7 @@ set softtabstop=2 " Spaces that a <Tab> counts for when editing
 set cursorline " Shows what line the cursor is on
 set cursorcolumn " Shows what column the cursor is on
 set incsearch
-set mouse=a " Allow the mouse in normal mode and visual mode.
+set mouse=a
 " set showmatch
 set smarttab
 set autoindent
@@ -104,6 +105,8 @@ au BufRead,BufNewFile {*.json} set ft=javascript
 au BufRead,BufNewFile *.c,*.cpp,*.h,*.hpp set cindent
 au BufRead,BufNewFile *.php set ft=phtml
 au BufRead,BufNewFile *.yaml,*.yml set expandtab
+
+autocmd vimenter * NERDTree
 
 " Function for helping with gnu c coding standard
 function! GnuC()
