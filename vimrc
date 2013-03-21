@@ -17,11 +17,7 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-rails'
-Bundle 'taq/vim-rspec'
 Bundle 'tpope/vim-endwise'
-Bundle 'pangloss/vim-javascript'
-Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-vividchalk'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-speeddating'
@@ -30,15 +26,18 @@ Bundle 'tpope/vim-pastie'
 Bundle 'sickill/vim-pasta'
 Bundle 'vim-scripts/ScrollColors'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+
+" Syntax highlighting
+Bundle 'glsl.vim'
+Bundle 'opencl.vim--Wierzowiecki'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'wavded/vim-stylus'
-Bundle 'scrooloose/nerdtree'
-" Bundle 'vim-ruby/vim-ruby'
-
-" Vim-scripts 
-Bundle 'glsl.vim'
-Bundle 'opencl.vim--Wierzowiecki'
+Bundle 'pangloss/vim-javascript'
+Bundle 'tpope/vim-rails'
+Bundle 'taq/vim-rspec'
+Bundle 'tpope/vim-haml'
 
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
