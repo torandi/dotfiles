@@ -30,6 +30,9 @@ Bundle 'tpope/vim-pastie'
 Bundle 'sickill/vim-pasta'
 Bundle 'vim-scripts/ScrollColors'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'wavded/vim-stylus'
 " Bundle 'vim-ruby/vim-ruby'
 
 " Vim-scripts 
