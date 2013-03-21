@@ -131,5 +131,6 @@ function! ChangePaste(type, ...)
 endfunction
 
 map <leader>t :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 syntax on
