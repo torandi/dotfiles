@@ -108,8 +108,6 @@ au BufRead,BufNewFile *.c,*.cpp,*.h,*.hpp set cindent
 au BufRead,BufNewFile *.php set ft=phtml
 au BufRead,BufNewFile *.yaml,*.yml set expandtab
 
-autocmd vimenter * NERDTree
-
 " Function for helping with gnu c coding standard
 function! GnuC()
 	set textwidth=80
@@ -131,5 +129,7 @@ function! ChangePaste(type, ...)
     silent exe "normal! `[v`]\"_c"
     silent exe "normal! p"
 endfunction
+
+map <leader>t :NERDTreeToggle<CR>
 
 syntax on
