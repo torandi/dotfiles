@@ -126,5 +126,6 @@ Host dagobah
 Hostname dagobah.torandi.com
 Port 222
 
-Host hoth.torandi.com
+Host hoth
+Hostname hoth.torandi.com
 User root

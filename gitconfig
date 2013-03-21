@@ -25,6 +25,10 @@
 
 [config]
 	autocrlf = input
+
+[push]
+	default = simple
+
 [branch]
 	autosetuprebase = always
 [push]
