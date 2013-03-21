@@ -27,3 +27,5 @@
 	autocrlf = input
 [branch]
 	autosetuprebase = always
+[push]
+	default = simple
