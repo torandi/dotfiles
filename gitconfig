@@ -8,7 +8,7 @@
 	ui = true
 
 [alias]
-	tree = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	tree = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --decorate
 	unstage = reset HEAD --
 	co = checkout
 	br = branch
