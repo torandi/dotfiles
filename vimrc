@@ -27,6 +27,7 @@ Bundle 'sickill/vim-pasta'
 Bundle 'vim-scripts/ScrollColors'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
+Bundle 'bronson/vim-trailing-whitespace'
 
 " Syntax highlighting
 Bundle 'glsl.vim'
