@@ -1,5 +1,5 @@
 --- /usr/share/X11/xkb/symbols/us	2012-01-23 23:42:36.000000000 +0100
-+++ us_mod_dvorak_intl	2012-07-16 11:10:59.427256392 +0200
++++ /usr/share/X11/xkb/symbols/us	2012-07-16 11:10:59.427256392 +0200
 @@ -343,12 +343,16 @@
      include "us(dvorak)"
  
