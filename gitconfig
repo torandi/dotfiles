@@ -1,6 +1,6 @@
 [user]
 	name = Andreas Tarandi
-	email = torandi@gmail.com
+	email = tarandi@southpole.se
 [color]
 	branch = auto
 	status = auto
@@ -33,3 +33,9 @@
 	autosetuprebase = always
 [push]
 	default = simple
+
+[sendemail]
+	smtpserver = smtp.southpole.se
+	smtpserverport = 25
+	smtpencryption = starttls
+	smtpuser = tarandi@southpole.se
