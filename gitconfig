@@ -1,11 +1,13 @@
 [user]
 	name = Andreas Tarandi
-	email = tarandi@southpole.se
+	email = torandi@gmail.com # tarandi@southpole.se
 [color]
 	branch = auto
 	status = auto
 	diff = auto
 	ui = true
+
+[init] templatedir = ~/.git/templates
 
 [alias]
 	tree = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --decorate
