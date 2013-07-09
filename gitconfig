@@ -18,6 +18,9 @@
 	recent = log -10 --oneline --graph
 	visual = !gitk
 	list = log --pretty=oneline
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	lolita = log --graph --decorate --pretty=oneline --abbrev-commit --ignore-space-at-eol -t --all
 
 [core]
 	excludesfile = ~/.gitignore
