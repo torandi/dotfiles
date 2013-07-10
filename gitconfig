@@ -7,8 +7,6 @@
 	diff = auto
 	ui = true
 
-[init] templatedir = ~/.git/templates
-
 [alias]
 	tree = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --decorate
 	unstage = reset HEAD --
