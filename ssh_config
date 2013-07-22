@@ -129,3 +129,7 @@ Port 222
 Host hoth
 Hostname hoth.torandi.com
 User root
+
+Host idefix
+Hostname login.southpole.se
+User tarandi
