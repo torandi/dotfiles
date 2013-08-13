@@ -90,7 +90,8 @@ Host refurn
 Hostname 109.74.0.68
 User root
 
-Host courscant
+Host coruscant
+User torandi
 Hostname home.torandi.com
 Port 6022
 
