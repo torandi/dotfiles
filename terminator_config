@@ -2,10 +2,12 @@
   title_transmit_bg_color = "#310039"
   focus = mouse
 [keybindings]
-  go_up = <Control>Up
   next_tab = <Control>Tab
+  close_window = None
+  go_up = <Control>Up
   prev_tab = <Shift><Control>Tab
   go_down = <Control>Down
+  close_term = <Primary><Shift>q
   go_right = <Control>Right
   go_left = <Control>Left
 [profiles]

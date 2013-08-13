@@ -27,6 +27,7 @@ Bundle 'sickill/vim-pasta'
 Bundle 'vim-scripts/ScrollColors'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'bronson/vim-trailing-whitespace'
 
 " Syntax highlighting
@@ -98,15 +99,16 @@ endfunction
 
 colorscheme linduxed
 
-au BufNewFile,BufRead *.glsl,*.vert,*.frag,*.geom set syntax=glsl
-au BufNewFile,BufRead *.cl set syntax=opencl
+au BufNewFile,BufRead *.glsl,*.vert,*.frag,*.geom set syntax=glsl noexpandtab
+au BufNewFile,BufRead *.cl set syntax=opencl noexpandtab
 au BufRead,BufNewFile *.rb,*.rhtml,*.haml,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.slim,*.yml set expandtab shiftwidth=2 softtabstop=2 syntax=ruby
 au BufRead,BufNewFile *.py set softtabstop=4 shiftwidth=4 expandtab
-au BufRead,BufNewFile *.haml         setfiletype haml 
+au BufRead,BufNewFile *.haml         setfiletype haml
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
-au BufRead,BufNewFile {*.json} set ft=javascript
-au BufRead,BufNewFile *.c,*.cpp,*.h,*.hpp set cindent
-au BufRead,BufNewFile *.php set ft=phtml
+au BufRead,BufNewFile {*.json} set ft=javascript noexpandtab
+au BufRead,BufNewFile *.js set noexpandtab
+au BufRead,BufNewFile *.c,*.cpp,*.h,*.hpp set cindent noexpandtab
+au BufRead,BufNewFile *.php set ft=phtml noexpandtab
 au BufRead,BufNewFile *.yaml,*.yml set expandtab
 
 " Function for helping with gnu c coding standard
@@ -131,8 +133,14 @@ function! ChangePaste(type, ...)
     silent exe "normal! p"
 endfunction
 
-map <leader>t :NERDTreeToggle<CR>
-map <leader>h :NERDTreeFocus<CR>
+map <leader>t :NERDTreeMirrorToggle<CR>
+map <leader>h :NERDTreeSteppedOpen<CR>
+map <leader>d :tabnew<CR>
+
+nmap <silent> <leader>c :wincmd k<CR>
+nmap <silent> <leader>g :wincmd j<CR>
+nmap <silent> <leader>f :wincmd h<CR>
+nmap <silent> <leader>r :wincmd l<CR>
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
