@@ -123,6 +123,10 @@ Host meze
 Hostname meze.slafs.org
 User nitroxy
 
+Host tatooine
+Hostname tatooine.torandi.com
+User torandi
+
 Host dagobah
 Hostname dagobah.torandi.com
 User torandi
