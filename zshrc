@@ -15,6 +15,9 @@ export EDITOR=vim
 #export LC_CTYPE="sv_SE"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
+export PATH=$PATH:~/dotfiles/bin
+
+
 #
 #  OPTIONS
 #
@@ -74,7 +77,6 @@ bindkey '^[[F'	end-of-line				# END
 #
 
 
-
 # Functions
 
 export NC="%{$terminfo[sgr0]%}"
@@ -88,47 +90,8 @@ done
 # Alias color
 GREY=$BLACK
 
+source ~/.zshrc.conf
 
-_hostname_color() {
-  case $(uname -n) in
-    (carbon)
-      echo -n $GREY
-      ;;
-    (kladdkaka)
-      echo -n $MAGENTA
-      ;;
-    (dopefish)
-      echo -n $CYAN
-      ;;
-    (xenon)
-      echo -n $GREEN
-      ;;
-    (consultix)
-      echo -n $GREEN
-      ;;
-    (sulfur)
-      echo -n $YELLOW
-		;;
-    (plutonium)
-      echo -n $YELLOW
-		;;
-		(geonosis)
-	  echo -n $BLUE
-	  ;;
-    (ostkaka)
-      echo -n $YELLOW
-		;;
-		(coruscant)
-			echo -n $GREY
-		;;
-		(dagobah)
-			echo -n $YELLOW
-		;;
-	 (*)
-	   echo -n $WHITE
-		;;
-    esac
-}
 _username_color() {
 	case $(whoami) in
 		(root)
@@ -152,7 +115,7 @@ _git_branch_color() {
 			echo -n $GREY
 			;;
 	esac
-}	
+}
 
 
 
@@ -167,6 +130,3 @@ export RPROMPT='$NC4%~$(_git_branch_color)$(__git_ps1 "(%s)") %0(?:${GREEN}:%B${
 autoload -U compinit
 compinit
 
-if [[ -f ~/.zshrc.local ]]; then
-	source ~/.zshrc.local
-fi

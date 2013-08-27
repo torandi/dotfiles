@@ -27,6 +27,7 @@ Bundle 'sickill/vim-pasta'
 Bundle 'vim-scripts/ScrollColors'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'bronson/vim-trailing-whitespace'
 
 " Syntax highlighting
@@ -77,9 +78,9 @@ set ignorecase " Ignore case.
 set smartcase " Ignore case when the pattern contains lowercase letters only.
 set showtabline=1 " Show tab page labels if there is more than one tab.
 set number " Display line numbers.
-set shiftwidth=2 " Spaces for each step of (auto)indent
-set tabstop=2 " Spaces that a <Tab> in the file counts for
-set softtabstop=2 " Spaces that a <Tab> counts for when editing
+set shiftwidth=4 " Spaces for each step of (auto)indent
+set tabstop=4 " Spaces that a <Tab> in the file counts for
+set softtabstop=4 " Spaces that a <Tab> counts for when editing
 set cursorline " Shows what line the cursor is on
 set cursorcolumn " Shows what column the cursor is on
 set incsearch
@@ -98,16 +99,17 @@ endfunction
 
 colorscheme linduxed
 
-au BufNewFile,BufRead *.glsl,*.vert,*.frag,*.geom set syntax=glsl
-au BufNewFile,BufRead *.cl set syntax=opencl
-au BufRead,BufNewFile *.rb,*.rhtml,*.haml,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.slim,*.yml set expandtab shiftwidth=2 softtabstop=2 syntax=ruby
-au BufRead,BufNewFile *.py set softtabstop=4 shiftwidth=4 expandtab
-au BufRead,BufNewFile *.haml         setfiletype haml 
+au BufNewFile,BufRead *.glsl,*.vert,*.frag,*.geom set syntax=glsl noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+au BufNewFile,BufRead *.cl set syntax=opencl noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
+au BufRead,BufNewFile *.rb,*.rhtml,*.haml,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.slim,*.yml set expandtab tabstop=2 shiftwidth=2 softtabstop=2 syntax=ruby
+au BufRead,BufNewFile *.py set expandtab shiftwidth=4 softtabstop=4 tabstop=4
+au BufRead,BufNewFile *.haml         setfiletype haml
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
-au BufRead,BufNewFile {*.json} set ft=javascript
-au BufRead,BufNewFile *.c,*.cpp,*.h,*.hpp set cindent
-au BufRead,BufNewFile *.php set ft=phtml
-au BufRead,BufNewFile *.yaml,*.yml set expandtab
+au BufRead,BufNewFile {*.json} set ft=javascript noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+au BufRead,BufNewFile *.js set noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+au BufRead,BufNewFile *.c,*.cpp,*.h,*.hpp set cindent noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+au BufRead,BufNewFile *.php set ft=phtml noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+au BufRead,BufNewFile *.yaml,*.yml set expandtab shiftwidth=2 softtabstop=2 tabstop=2
 
 " Function for helping with gnu c coding standard
 function! GnuC()
@@ -131,8 +133,14 @@ function! ChangePaste(type, ...)
     silent exe "normal! p"
 endfunction
 
-map <leader>t :NERDTreeToggle<CR>
-map <leader>h :NERDTreeFocus<CR>
+map <leader>t :NERDTreeMirrorToggle<CR>
+map <leader>h :NERDTreeSteppedOpen<CR>
+map <leader>d :tabnew<CR>
+
+nmap <silent> <leader>c :wincmd k<CR>
+nmap <silent> <leader>g :wincmd j<CR>
+nmap <silent> <leader>f :wincmd h<CR>
+nmap <silent> <leader>r :wincmd l<CR>
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
