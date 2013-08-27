@@ -2,7 +2,7 @@
 ln -s ~/dotfiles/vim ~/.vim
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/zshrc ~/.zshrc
-ln -s ~/dotfiles/zshrc.conf ~/.zshrc.conf
+cp ~/dotfiles/zshrc.conf ~/.zshrc.conf
 ln -s ~/dotfiles/gitconfig ~/.gitconfig
 ln -s ~/dotfiles/git ~/.git
 ln -s ~/dotfiles/terminator/config ~/.config/terminator/config
