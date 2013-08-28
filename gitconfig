@@ -1,6 +1,6 @@
 [user]
 	name = Andreas Tarandi
-	email = torandi@gmail.com
+	email = torandi@gmail.com # tarandi@southpole.se
 [color]
 	branch = auto
 	status = auto
@@ -18,6 +18,11 @@
 	recent = log -10 --oneline --graph
 	visual = !gitk
 	list = log --pretty=oneline
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	lolita = log --graph --decorate --pretty=oneline --abbrev-commit --ignore-space-at-eol -t --all
+	unfin = commit -am "UNFIN"
+	restore = reset HEAD^
 
 [core]
 	excludesfile = ~/.gitignore
@@ -27,9 +32,13 @@
 	autocrlf = input
 
 [push]
-	default = simple
+#	default = simple # commented by default, since this only works with git > 1.8
 
 [branch]
 	autosetuprebase = always
-[push]
-	default = simple
+
+[sendemail]
+	smtpserver = smtp.southpole.se
+	smtpserverport = 25
+	smtpencryption = starttls
+	smtpuser = tarandi@southpole.se

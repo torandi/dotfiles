@@ -91,6 +91,7 @@ Hostname 109.74.0.68
 User root
 
 Host coruscant
+User torandi
 Hostname home.torandi.com
 Port 6022
 
@@ -122,10 +123,23 @@ Host meze
 Hostname meze.slafs.org
 User nitroxy
 
+Host tatooine
+Hostname tatooine.torandi.com
+User torandi
+
+Host kamino
+Hostname kamino.torandi.com
+User torandi
+
 Host dagobah
 Hostname dagobah.torandi.com
+User torandi
 Port 222
 
 Host hoth
 Hostname hoth.torandi.com
 User root
+
+Host idefix
+Hostname login.southpole.se
+User tarandi
