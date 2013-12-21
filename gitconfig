@@ -36,8 +36,6 @@
 
 [branch]
 	autosetuprebase = always
-[push]
-	default = simple
 
 [sendemail]
 	smtpserver = smtp.southpole.se
