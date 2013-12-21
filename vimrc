@@ -90,6 +90,9 @@ set smarttab
 set autoindent
 set smartindent
 
+set backupdir=~/.vim/tmp,.,/tmp
+set directory=~/.vim/tmp,.,/tmp
+
 au!
 
 function! MarkColumn()

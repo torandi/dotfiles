@@ -130,3 +130,7 @@ export RPROMPT='$NC4%~$(_git_branch_color)$(__git_ps1 "(%s)") %0(?:${GREEN}:%B${
 autoload -U compinit
 compinit
 
+if [[ -f ~/.zprofile ]]; then
+       source ~/.zprofile
+fi
+

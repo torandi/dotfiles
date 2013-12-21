@@ -143,3 +143,9 @@ User root
 Host idefix
 Hostname login.southpole.se
 User tarandi
+
+# NitroXy
+
+Host ost
+Hostname 82.145.152.9
+User root
