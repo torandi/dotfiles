@@ -27,12 +27,13 @@
 [core]
 	excludesfile = ~/.gitignore
 	autocrlf = input
+	deltaBaseCacheLimit = 1G
 
 [config]
 	autocrlf = input
 
 [push]
-#	default = simple # commented by default, since this only works with git > 1.8
+	default = simple # commented by default, since this only works with git > 1.8
 
 [branch]
 	autosetuprebase = always

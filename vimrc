@@ -23,6 +23,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-pastie'
+Bundle 'tpope/vim-fugitive'
 Bundle 'sickill/vim-pasta'
 Bundle 'vim-scripts/ScrollColors'
 Bundle 'scrooloose/nerdcommenter'
@@ -45,7 +46,7 @@ Bundle 'tpope/vim-haml'
 " Bundle 'git://git.wincent.com/command-t.git'
 " ...
 
-filetype plugin indent on     " required! 
+filetype plugin indent on     " required!
 
 "
 " Brief help
@@ -93,6 +94,11 @@ set smartindent
 set backupdir=~/.vim/tmp,.,/tmp
 set directory=~/.vim/tmp,.,/tmp
 
+let g:xml_syntax_folding=1
+
+set foldmethod=syntax
+set foldlevelstart=20
+
 au!
 
 function! MarkColumn()
@@ -102,7 +108,9 @@ endfunction
 
 colorscheme linduxed
 
+
 au BufNewFile,BufRead *.glsl,*.vert,*.frag,*.geom set syntax=glsl noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+au BufNewFile,BufRead *.rl set syntax=ragel cindent noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 au BufNewFile,BufRead *.cl set syntax=opencl noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
 au BufRead,BufNewFile *.rb,*.rhtml,*.haml,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.slim,*.yml set expandtab tabstop=2 shiftwidth=2 softtabstop=2 syntax=ruby
 au BufRead,BufNewFile *.py set expandtab shiftwidth=4 softtabstop=4 tabstop=4
@@ -110,9 +118,10 @@ au BufRead,BufNewFile *.haml         setfiletype haml
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
 au BufRead,BufNewFile {*.json} set ft=javascript noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 au BufRead,BufNewFile *.js set noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
-au BufRead,BufNewFile *.c,*.cpp,*.h,*.hpp set cindent noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
-au BufRead,BufNewFile *.php set ft=phtml noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
-au BufRead,BufNewFile *.yaml,*.yml set expandtab shiftwidth=2 softtabstop=2 tabstop=2
+au BufRead,BufNewFile *.ffs set syntax=cpp
+au BufRead,BufNewFile *.c,*.cpp,*.h,*.hpp,*.ffs set cindent noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+au BufRead,BufNewFile *.php set ft=php noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+au BufRead,BufNewFile *.yaml,*.yml,*.anim,*.preset,*.conf set expandtab shiftwidth=2 softtabstop=2 tabstop=2 syntax=yaml
 
 " Function for helping with gnu c coding standard
 function! GnuC()
@@ -144,6 +153,9 @@ nmap <silent> <leader>c :wincmd k<CR>
 nmap <silent> <leader>g :wincmd j<CR>
 nmap <silent> <leader>f :wincmd h<CR>
 nmap <silent> <leader>r :wincmd l<CR>
+
+"Map <tab> to enter in completion menu (more in line with how I use visual studio)
+inoremap <expr> <silent> <Tab> pumvisible() ? "\<CR>" : "\<Tab>"
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
