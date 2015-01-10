@@ -28,8 +28,9 @@
     [[[child1]]]
       type = Terminal
       parent = window0
+      profile = default
     [[[window0]]]
       type = Window
       parent = ""
-      size = 800, 500
+      size = 800, 600
 [plugins]

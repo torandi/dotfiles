@@ -27,6 +27,7 @@
 [core]
 	excludesfile = ~/.gitignore
 	autocrlf = input
+	deltaBaseCacheLimit = 1G
 
 [config]
 	autocrlf = input
