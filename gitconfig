@@ -31,14 +31,13 @@
 [config]
 	autocrlf = input
 
-[push]
-#	default = simple # commented by default, since this only works with git > 1.8
-
 [branch]
 	autosetuprebase = always
 
-[sendemail]
-	smtpserver = smtp.southpole.se
-	smtpserverport = 25
-	smtpencryption = starttls
-	smtpuser = tarandi@southpole.se
+;[sendemail]
+	;smtpserver = smtp.southpole.se
+	;smtpserverport = 25
+	;smtpencryption = starttls
+	;smtpuser = tarandi@southpole.se
+[push]
+	default = simple

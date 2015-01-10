@@ -8,7 +8,7 @@ call vundle#rc()
 let mapleader = ","
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 " My Bundles here:
