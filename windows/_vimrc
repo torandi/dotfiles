@@ -64,8 +64,14 @@ au BufRead,BufNewFile *.c,*.cpp,*.h,*.hpp,*.ffs,*.ddf set cindent noexpandtab sh
 au BufRead,BufNewFile *.php set ft=php noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 au BufRead,BufNewFile *.yaml,*.yml,*.anim,*.preset,*.conf set expandtab shiftwidth=2 softtabstop=2 tabstop=2 syntax=yaml
 
+" Handle splits
+
+set splitbelow
+set splitright
+
 " Bindings
 
+map t l
 
 " Don't remove visual block when indenting.
 "vmap < <gv
@@ -80,6 +86,12 @@ nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
+
+" Move around splits
+nnoremap <leader><left> <C-W><left>
+nnoremap <leader><right> <C-W><right>
+nnoremap <leader><down> <C-W><down>
+nnoremap <leader><up> <C-W><up>
 
 "This allows for change paste motion cp{motion}
 nmap <silent> cp :set opfunc=ChangePaste<CR>g@
