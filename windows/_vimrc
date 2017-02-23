@@ -71,7 +71,10 @@ set splitright
 
 " Bindings
 
-map t l
+noremap h j
+noremap t k
+noremap n h
+noremap s l
 
 " Don't remove visual block when indenting.
 "vmap < <gv
@@ -88,10 +91,10 @@ vmap <Leader>p "+p
 vmap <Leader>P "+P
 
 " Move around splits
-nnoremap <leader><left> <C-W>h
-nnoremap <leader><right> <C-W>t
-nnoremap <leader><down> <C-W>j
-nnoremap <leader><up> <C-W>k
+noremap <leader><left> <C-W>h
+noremap <leader><right> <C-W>t
+noremap <leader><down> <C-W>j
+noremap <leader><up> <C-W>k
 
 "This allows for change paste motion cp{motion}
 nmap <silent> cp :set opfunc=ChangePaste<CR>g@
