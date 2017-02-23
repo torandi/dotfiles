@@ -7,8 +7,6 @@ map <space> <leader>
 " Disable bell
 set noeb vb t_vb=
 
-set complete-=i
-
 set smarttab
 set autoindent
 set smartindent
@@ -23,8 +21,7 @@ set backspace=indent,eol,start " Allow backspacing over everything in insert mod
 " set winaltkeys=no " Allow mapping of alt (meta) key shortcuts.
 set ruler " Show the cursor position all the time.
 set showcmd " Display incomplete commands.
-set ignorecase " Ignore case.
-set smartcase " Ignore case when the pattern contains lowercase letters only.
+set ignorecase smartcase " Ignore case when the pattern contains lowercase letters only.
 set showtabline=1 " Show tab page labels if there is more than one tab.
 set number " Display line numbers.
 set shiftwidth=4 " Spaces for each step of (auto)indent
