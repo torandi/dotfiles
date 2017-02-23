@@ -1,0 +1,6 @@
+" disable bell
+set vb t_vb=
+set anti guifont=Consolas:h9
+
+"disable scrollbars
+" set guioptions-=r guioptions-=L

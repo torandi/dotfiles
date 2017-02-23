@@ -1,0 +1,12 @@
+[submodule "windows/vimfiles/bundle/syntax/_hlsl"]
+	path = windows/vimfiles/bundle/syntax/_hlsl
+	url = https://github.com/beyondmarc/hlsl.vim.git
+[submodule "windows/vimfiles/bundle/vim-polyglot"]
+	path = windows/vimfiles/bundle/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot.git
+[submodule "windows/vimfiles/bundle/nerdtree"]
+	path = windows/vimfiles/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "windows/vimfiles/bundle/nerdcommenter"]
+	path = windows/vimfiles/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
