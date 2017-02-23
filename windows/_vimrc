@@ -42,7 +42,9 @@ let g:xml_syntax_folding=1
 set foldmethod=syntax
 set foldlevelstart=20
 
-colorscheme elflord
+" colorscheme monokai-phoenix
+" colorscheme monokai-phoenix
+colorscheme antares 
 
 " File Type handling
 
