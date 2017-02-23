@@ -88,10 +88,10 @@ vmap <Leader>p "+p
 vmap <Leader>P "+P
 
 " Move around splits
-nnoremap <leader><left> <C-W><left>
-nnoremap <leader><right> <C-W><right>
-nnoremap <leader><down> <C-W><down>
-nnoremap <leader><up> <C-W><up>
+nnoremap <leader><left> <C-W>h
+nnoremap <leader><right> <C-W>t
+nnoremap <leader><down> <C-W>j
+nnoremap <leader><up> <C-W>k
 
 "This allows for change paste motion cp{motion}
 nmap <silent> cp :set opfunc=ChangePaste<CR>g@
