@@ -12,7 +12,7 @@ set complete-=i
 set smarttab
 set autoindent
 set smartindent
-set viminfo='10,\"100,:20,%,n~/.vim/viminfo
+set viminfo='10,\"100,:20,%
 
 set nostartofline " Keep cursor in the same column if possible.
 "set whichwrap=b,s,[,],<,>,h,l " Allow cursor to wrap between lines.
@@ -30,8 +30,8 @@ set number " Display line numbers.
 set shiftwidth=4 " Spaces for each step of (auto)indent
 set tabstop=4 " Spaces that a <Tab> in the file counts for
 set softtabstop=4 " Spaces that a <Tab> counts for when editing
-set cursorline " Shows what line the cursor is on
-set cursorcolumn " Shows what column the cursor is on
+" set cursorline " Shows what line the cursor is on
+" set cursorcolumn " Shows what column the cursor is on
 set mouse=a
 " set showmatch
 
@@ -39,23 +39,17 @@ set notimeout
 set ttimeout
 set ttimeoutlen=100
 
-au!
-
 " Folding
 let g:xml_syntax_folding=1
 
 set foldmethod=syntax
 set foldlevelstart=20
 
-
-function! MarkColumn()
-	set colorcolumn=+1
-	hi ColorColumn ctermbg=235
-endfunction
-
-" colorscheme linduxed
+colorscheme elflord
 
 " File Type handling
+
+au!
 
 au BufNewFile,BufRead *.glsl,*.vert,*.frag,*.geom set syntax=glsl noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 au BufNewFile,BufRead *.rl set syntax=ragel cindent noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
@@ -67,7 +61,7 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=r
 au BufRead,BufNewFile {*.json} set ft=javascript noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 au BufRead,BufNewFile *.js set noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 au BufRead,BufNewFile *.ffs set syntax=cpp
-au BufRead,BufNewFile *.c,*.cpp,*.h,*.hpp,*.ffs *.ddf set cindent noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+au BufRead,BufNewFile *.c,*.cpp,*.h,*.hpp,*.ffs,*.ddf set cindent noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 au BufRead,BufNewFile *.php set ft=php noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 au BufRead,BufNewFile *.yaml,*.yml,*.anim,*.preset,*.conf set expandtab shiftwidth=2 softtabstop=2 tabstop=2 syntax=yaml
 
