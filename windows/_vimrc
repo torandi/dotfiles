@@ -1,0 +1,70 @@
+let mapleader = "<\Space>"
+
+" Syntax highlighting
+" Bundle 'glsl.vim'
+" Bundle 'opencl.vim--Wierzowiecki'
+" Bundle 'kchmck/vim-coffee-script'
+" Bundle 'digitaltoad/vim-jade'
+" Bundle 'wavded/vim-stylus'
+" Bundle 'pangloss/vim-javascript'
+
+let g:xml_syntax_folding=1
+
+set foldmethod=syntax
+set foldlevelstart=20
+
+au!
+
+function! MarkColumn()
+	set colorcolumn=+1
+	hi ColorColumn ctermbg=235
+endfunction
+
+" colorscheme linduxed
+
+
+au BufNewFile,BufRead *.glsl,*.vert,*.frag,*.geom set syntax=glsl noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+au BufNewFile,BufRead *.rl set syntax=ragel cindent noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+au BufNewFile,BufRead *.cl set syntax=opencl noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
+au BufRead,BufNewFile *.rb,*.rhtml,*.haml,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.slim,*.yml set expandtab tabstop=2 shiftwidth=2 softtabstop=2 syntax=ruby
+au BufRead,BufNewFile *.py set expandtab shiftwidth=4 softtabstop=4 tabstop=4
+au BufRead,BufNewFile *.haml         setfiletype haml
+au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
+au BufRead,BufNewFile {*.json} set ft=javascript noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+au BufRead,BufNewFile *.js set noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+au BufRead,BufNewFile *.ffs set syntax=cpp
+au BufRead,BufNewFile *.c,*.cpp,*.h,*.hpp,*.ffs *.ddf set cindent noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+au BufRead,BufNewFile *.php set ft=php noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+au BufRead,BufNewFile *.yaml,*.yml,*.anim,*.preset,*.conf set expandtab shiftwidth=2 softtabstop=2 tabstop=2 syntax=yaml
+
+" Bindings
+"
+"
+" Don't remove visual block when indenting.
+"vmap < <gv
+"vmap > >gv
+
+set pastetoggle=<F2>
+
+"This allows for change paste motion cp{motion}
+nmap <silent> cp :set opfunc=ChangePaste<CR>g@
+function! ChangePaste(type, ...)
+    silent exe "normal! `[v`]\"_c"
+    silent exe "normal! p"
+endfunction
+
+map <leader>t :NERDTreeMirrorToggle<CR>
+map <leader>h :NERDTreeSteppedOpen<CR>
+map <leader>d :tabnew<CR>
+
+nmap <silent> <leader>c :wincmd k<CR>
+nmap <silent> <leader>g :wincmd j<CR>
+nmap <silent> <leader>f :wincmd h<CR>
+nmap <silent> <leader>r :wincmd l<CR>
+
+"Map <tab> to enter in completion menu (more in line with how I use visual studio)
+inoremap <expr> <silent> <Tab> pumvisible() ? "\<CR>" : "\<Tab>"
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+syntax on
