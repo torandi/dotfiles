@@ -1,3 +1,5 @@
+set encoding=utf-8
+
 execute pathogen#infect()
 set nocompatible
 filetype plugin indent on
@@ -44,7 +46,8 @@ set foldlevelstart=20
 
 " colorscheme monokai-phoenix
 " colorscheme monokai-phoenix
-colorscheme antares 
+" colorscheme antares 
+colorscheme evening 
 
 " File Type handling
 
@@ -95,6 +98,21 @@ noremap <leader><left> <C-W>h
 noremap <leader><right> <C-W>t
 noremap <leader><down> <C-W>j
 noremap <leader><up> <C-W>k
+
+noremap <leader><left> <C-W><left>
+noremap <leader><right> <C-W><right>
+noremap <leader><down> <C-W><down>
+noremap <leader><up> <C-W><up>
+
+" remap ctrl-p
+let g:ctrlp_map = '<C-a>'
+
+" goto definition
+nnoremap <leader>g :YcmCompleter GoToImprecise<CR>
+nnoremap <leader>e :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>r :YcmCompleter GoToReference<CR>
+nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>i :YcmCompleter GoToInclude<CR>
 
 "This allows for change paste motion cp{motion}
 nmap <silent> cp :set opfunc=ChangePaste<CR>g@
