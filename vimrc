@@ -84,8 +84,6 @@ set number " Display line numbers.
 set shiftwidth=4 " Spaces for each step of (auto)indent
 set tabstop=4 " Spaces that a <Tab> in the file counts for
 set softtabstop=4 " Spaces that a <Tab> counts for when editing
-set cursorline " Shows what line the cursor is on
-set cursorcolumn " Shows what column the cursor is on
 set mouse=a
 " set showmatch
 set smarttab
@@ -103,11 +101,6 @@ let g:xml_syntax_folding=1
 
 set foldmethod=syntax
 set foldlevelstart=20
-
-function! MarkColumn()
-	set colorcolumn=+1
-	hi ColorColumn ctermbg=235
-endfunction
 
 colorscheme linduxed
 
@@ -164,7 +157,7 @@ noremap <leader><up> <C-W><up>
 let g:ycm_key_detailed_diagnostics = '<leader>s'
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 " let g:ycm_goto_buffer_command = 'new-tab'
-let g:ycm_goto_buffer_command = 'vertical-split'
+" let g:ycm_goto_buffer_command = 'vertical-split'
 
 " home row utils:
 " oeu id htn
@@ -180,6 +173,8 @@ nmap <silent> <leader>t :TagbarToggle<CR>
 
 nnoremap <leader>g :YcmCompleter GoTo<CR>
 
+" remap go to previous tag (ctags)
+nnoremap <C-d> <C-t>
 nnoremap <silent> <C-t> :YcmCompleter GetType<CR>
 
 "This allows for change paste motion cp{motion}
