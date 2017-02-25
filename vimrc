@@ -32,9 +32,9 @@ Plugin 'bronson/vim-trailing-whitespace'
 " Code navigation and completion
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'universal-ctags/ctags'
-Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
+Plugin 'ludovicchabant/vim-gutentags'
 
 " Syntax highlighting
 Plugin 'sheerun/vim-polyglot'
@@ -163,7 +163,8 @@ noremap <leader><up> <C-W><up>
 
 let g:ycm_key_detailed_diagnostics = '<leader>s'
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-let g:ycm_goto_buffer_command = 'new-tab'
+" let g:ycm_goto_buffer_command = 'new-tab'
+let g:ycm_goto_buffer_command = 'vertical-split'
 
 " home row utils:
 " oeu id htn
@@ -177,8 +178,9 @@ nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>h :YcmCompleter GoToDefinition<CR>
 nmap <silent> <leader>t :TagbarToggle<CR>
 
-set statusline+=%{gutentags#statusline()}
+nnoremap <leader>g :YcmCompleter GoTo<CR>
 
+nnoremap <silent> <C-t> :YcmCompleter GetType<CR>
 
 "This allows for change paste motion cp{motion}
 nmap <silent> cp :set opfunc=ChangePaste<CR>g@
