@@ -1,0 +1,4 @@
+set vsvim_useeditordefaults
+
+"Map <tab> to enter in completion menu (more in line with how I use visual studio)
+inoremap <expr> <silent> <Tab> pumvisible() ? "\<CR>" : "\<Tab>"

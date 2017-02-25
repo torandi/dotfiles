@@ -1,0 +1,33 @@
+[submodule "windows/vimfiles/bundle/syntax/_hlsl"]
+	path = windows/vimfiles/bundle/syntax/_hlsl
+	url = https://github.com/beyondmarc/hlsl.vim.git
+[submodule "windows/vimfiles/bundle/vim-polyglot"]
+	path = windows/vimfiles/bundle/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot.git
+[submodule "windows/vimfiles/bundle/nerdtree"]
+	path = windows/vimfiles/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "windows/vimfiles/bundle/nerdcommenter"]
+	path = windows/vimfiles/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "windows/vimfiles/bundle/YouCompleteMe"]
+	path = windows/vimfiles/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "windows/vimfiles/bundle/ctrlp-py-matcher"]
+	path = windows/vimfiles/bundle/ctrlp-py-matcher
+	url = https://github.com/FelikZ/ctrlp-py-matcher
+[submodule "windows/vimfiles/bundle/p44vim"]
+	path = windows/vimfiles/bundle/p44vim
+	url = https://git.frostbite.com/frostbite-core/p44vim.git
+[submodule "windows/vimfiles/bundle/ctrlp.vim"]
+	path = windows/vimfiles/bundle/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "windows/vimfiles/bundle/vim-gutentags"]
+	path = windows/vimfiles/bundle/vim-gutentags
+	url = https://github.com/ludovicchabant/vim-gutentags.git
+[submodule "windows/vimfiles/bundle/ctags"]
+	path = windows/vimfiles/bundle/ctags
+	url = https://github.com/universal-ctags/ctags.git
+[submodule "windows/vimfiles/bundle/fb-vim"]
+	path = windows/vimfiles/bundle/fb-vim
+	url = https://git.frostbite.com/frostbite-core/fb-vim.git

@@ -1,0 +1,17 @@
+" disable bell
+set vb t_vb=
+" set anti guifont=Consolas:h9
+set anti guifont=Lucida_Console:h9:cANSI:qDRAFT
+
+function! ToggleGUICruft()
+  if &guioptions=='i'
+    exec('set guioptions=egmrLtT')
+  else
+    exec('set guioptions=i')
+  endif
+endfunction
+
+map <F11> <Esc>:call ToggleGUICruft()<cr>
+
+" by default, hide gui menus
+set guioptions=i

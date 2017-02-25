@@ -32,8 +32,8 @@
 [config]
 	autocrlf = input
 
-[push]
-	default = simple # commented by default, since this only works with git > 1.8
-
 [branch]
 	autosetuprebase = always
+
+[push]
+	default = simple
