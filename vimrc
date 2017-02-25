@@ -166,9 +166,10 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_goto_buffer_command = 'new-tab'
 
 " home row utils:
-" oeu id htn 
+" oeu id htn
 let g:ctrlp_map = '<leader>o'
 map <silent> <leader>e :NERDTreeToggle<CR>
+map <silent> <leader>u :CtrlPTag<CR>
 
 nnoremap <leader>i :YcmCompleter GoToInclude<CR>
 nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
@@ -176,6 +177,7 @@ nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>h :YcmCompleter GoToDefinition<CR>
 nmap <silent> <leader>t :TagbarToggle<CR>
 
+set statusline+=%{gutentags#statusline()}
 
 
 "This allows for change paste motion cp{motion}
