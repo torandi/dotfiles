@@ -37,9 +37,3 @@
 
 [branch]
 	autosetuprebase = always
-
-[sendemail]
-	smtpserver = smtp.southpole.se
-	smtpserverport = 25
-	smtpencryption = starttls
-	smtpuser = tarandi@southpole.se

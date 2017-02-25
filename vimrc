@@ -84,11 +84,10 @@ set tabstop=4 " Spaces that a <Tab> in the file counts for
 set softtabstop=4 " Spaces that a <Tab> counts for when editing
 set cursorline " Shows what line the cursor is on
 set cursorcolumn " Shows what column the cursor is on
-set incsearch
 set mouse=a
 " set showmatch
 set smarttab
-set autoindent
+set cindent
 set smartindent
 
 set backupdir=~/.vim/tmp,.,/tmp
@@ -116,18 +115,12 @@ au BufRead,BufNewFile *.rb,*.rhtml,*.haml,Gemfile,Rakefile,Vagrantfile,Thorfile,
 au BufRead,BufNewFile *.py set expandtab shiftwidth=4 softtabstop=4 tabstop=4
 au BufRead,BufNewFile *.haml         setfiletype haml
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
-au BufRead,BufNewFile {*.json} set ft=javascript noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+au BufRead,BufNewFile {*.json} set ft=javascript expandtab shiftwidth=4 softtabstop=4 tabstop=4
 au BufRead,BufNewFile *.js set noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 au BufRead,BufNewFile *.ffs set syntax=cpp
 au BufRead,BufNewFile *.c,*.cpp,*.h,*.hpp,*.ffs set cindent noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 au BufRead,BufNewFile *.php set ft=php noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 au BufRead,BufNewFile *.yaml,*.yml,*.anim,*.preset,*.conf set expandtab shiftwidth=2 softtabstop=2 tabstop=2 syntax=yaml
-
-" Function for helping with gnu c coding standard
-function! GnuC()
-	set textwidth=80
-	call MarkColumn()
-endfunction
 
 " Bindings
 "

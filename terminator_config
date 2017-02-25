@@ -1,36 +1,36 @@
 [global_config]
-  title_transmit_bg_color = "#310039"
   focus = mouse
+  title_transmit_bg_color = "#310039"
 [keybindings]
-  next_tab = <Control>Tab
-  close_window = None
-  go_up = <Control>Up
-  prev_tab = <Shift><Control>Tab
-  go_down = <Control>Down
   close_term = <Primary><Shift>q
-  go_right = <Control>Right
+  close_window = None
+  go_down = <Control>Down
   go_left = <Control>Left
-[profiles]
-  [[default]]
-    scrollbar_position = hidden
-    palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
-    background_image = None
-    background_darkness = 0.93
-    background_type = transparent
-    use_system_font = False
-    foreground_color = "#ffffff"
-    use_custom_command = True
-    custom_command = zsh
-    font = Monospace 8
-    scrollback_infinite = True
+  go_right = <Control>Right
+  go_up = <Control>Up
+  next_tab = <Control>Tab
+  prev_tab = <Shift><Control>Tab
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
       profile = default
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
       size = 800, 600
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.93
+    background_image = None
+    background_type = transparent
+    custom_command = zsh
+    font = Monospace 8
+    foreground_color = "#ffffff"
+    palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    use_custom_command = True
+    use_system_font = False
