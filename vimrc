@@ -1,52 +1,54 @@
-set nocompatible               " be iMproved
-filetype off                   " required!
+set encoding=utf-8
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set nocompatible
+filetype off
 
-" change leader to ,'
-let mapleader = ","
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " My Bundles here:
 "
 " original repos on github
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-vividchalk'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-speeddating'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-pastie'
-Bundle 'tpope/vim-fugitive'
-Bundle 'sickill/vim-pasta'
-Bundle 'vim-scripts/ScrollColors'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'bronson/vim-trailing-whitespace'
+" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Bundle 'tpope/vim-vividchalk'
+" Bundle 'tpope/vim-surround'
+" Bundle 'tpope/vim-speeddating'
+" Bundle 'tpope/vim-repeat'
+" Bundle 'tpope/vim-pastie'
+" Bundle 'tpope/vim-fugitive'
+" Bundle 'sickill/vim-pasta'
+" Bundle 'vim-scripts/ScrollColors'
+" Plugin 'jistr/vim-nerdtree-tabs'
+
+" Workflow
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'bronson/vim-trailing-whitespace'
+
+" Code navigation and completion
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'universal-ctags/ctags'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'majutsushi/tagbar'
 
 " Syntax highlighting
-Bundle 'glsl.vim'
-Bundle 'opencl.vim--Wierzowiecki'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'wavded/vim-stylus'
-Bundle 'pangloss/vim-javascript'
-Bundle 'tpope/vim-rails'
-Bundle 'taq/vim-rspec'
-Bundle 'tpope/vim-haml'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'beyondmarc/glsl.vim'
+Plugin 'beyondmarc/opengl.vim'
+Plugin 'beyondmarc/hlsl.vim'
+Plugin 'pangloss/vim-javascript'
 
-" non github repos
-" Bundle 'git://git.wincent.com/command-t.git'
-" ...
+" Vundle end
+call vundle#end()
+filetype plugin indent on
 
-filetype plugin indent on     " required!
+" change leader to space
+map <space> <leader>
 
 "
 " Brief help
@@ -90,6 +92,10 @@ set smarttab
 set cindent
 set smartindent
 
+set notimeout
+set ttimeout
+set ttimeoutlen=100
+
 set backupdir=~/.vim/tmp,.,/tmp
 set directory=~/.vim/tmp,.,/tmp
 
@@ -98,8 +104,6 @@ let g:xml_syntax_folding=1
 set foldmethod=syntax
 set foldlevelstart=20
 
-au!
-
 function! MarkColumn()
 	set colorcolumn=+1
 	hi ColorColumn ctermbg=235
@@ -107,8 +111,9 @@ endfunction
 
 colorscheme linduxed
 
+au!
 
-au BufNewFile,BufRead *.glsl,*.vert,*.frag,*.geom set syntax=glsl noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+au BufNewFile,BufRead *.glsl,*.vert,*.frag,*.geom,*.hlsl set noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 au BufNewFile,BufRead *.rl set syntax=ragel cindent noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 au BufNewFile,BufRead *.cl set syntax=opencl noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
 au BufRead,BufNewFile *.rb,*.rhtml,*.haml,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.slim,*.yml set expandtab tabstop=2 shiftwidth=2 softtabstop=2 syntax=ruby
@@ -131,6 +136,48 @@ au BufRead,BufNewFile *.yaml,*.yml,*.anim,*.preset,*.conf set expandtab shiftwid
 
 set pastetoggle=<F2>
 
+" Handle splits
+
+set splitbelow
+set splitright
+
+" Bindings
+
+" Copy paste with leader
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+" Move around splits
+noremap <leader><left> <C-W><left>
+noremap <leader><right> <C-W><right>
+noremap <leader><down> <C-W><down>
+noremap <leader><up> <C-W><up>
+
+" remap ctrl-p
+
+" YouCompleteMe config
+
+let g:ycm_key_detailed_diagnostics = '<leader>s'
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_goto_buffer_command = 'new-tab'
+
+" home row utils:
+" oeu id htn 
+let g:ctrlp_map = '<leader>o'
+map <silent> <leader>e :NERDTreeToggle<CR>
+
+nnoremap <leader>i :YcmCompleter GoToInclude<CR>
+nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
+
+nnoremap <leader>h :YcmCompleter GoToDefinition<CR>
+nmap <silent> <leader>t :TagbarToggle<CR>
+
+
+
 "This allows for change paste motion cp{motion}
 nmap <silent> cp :set opfunc=ChangePaste<CR>g@
 function! ChangePaste(type, ...)
@@ -138,17 +185,17 @@ function! ChangePaste(type, ...)
     silent exe "normal! p"
 endfunction
 
-map <leader>t :NERDTreeMirrorToggle<CR>
-map <leader>h :NERDTreeSteppedOpen<CR>
-map <leader>d :tabnew<CR>
 
-nmap <silent> <leader>c :wincmd k<CR>
-nmap <silent> <leader>g :wincmd j<CR>
-nmap <silent> <leader>f :wincmd h<CR>
-nmap <silent> <leader>r :wincmd l<CR>
+
+" map <leader>d :tabnew<CR>
+
+" nmap <silent> <leader>c :wincmd k<CR>
+" nmap <silent> <leader>g :wincmd j<CR>
+" nmap <silent> <leader>f :wincmd h<CR>
+" nmap <silent> <leader>r :wincmd l<CR>
 
 "Map <tab> to enter in completion menu (more in line with how I use visual studio)
-inoremap <expr> <silent> <Tab> pumvisible() ? "\<CR>" : "\<Tab>"
+" inoremap <expr> <silent> <Tab> pumvisible() ? "\<CR>" : "\<Tab>"
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 

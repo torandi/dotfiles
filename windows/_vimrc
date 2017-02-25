@@ -4,6 +4,7 @@ execute pathogen#infect()
 set nocompatible
 filetype plugin indent on
 
+" change leader to space
 map <space> <leader>
 
 " Disable bell
@@ -46,8 +47,8 @@ set foldlevelstart=20
 
 " colorscheme monokai-phoenix
 " colorscheme monokai-phoenix
-" colorscheme antares 
-colorscheme evening 
+" colorscheme antares
+colorscheme evening
 
 " File Type handling
 
@@ -94,10 +95,6 @@ vmap <Leader>p "+p
 vmap <Leader>P "+P
 
 " Move around splits
-noremap <leader><left> <C-W>h
-noremap <leader><right> <C-W>t
-noremap <leader><down> <C-W>j
-noremap <leader><up> <C-W>k
 
 noremap <leader><left> <C-W><left>
 noremap <leader><right> <C-W><right>
