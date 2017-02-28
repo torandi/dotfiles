@@ -75,10 +75,10 @@ set splitright
 
 " Bindings
 
-noremap h j
-noremap t k
-noremap n h
-noremap s l
+" noremap h j
+" noremap t k
+" noremap n h
+" noremap s l
 
 " Don't remove visual block when indenting.
 "vmap < <gv
